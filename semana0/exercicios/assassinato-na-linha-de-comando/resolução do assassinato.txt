@@ -1,0 +1,73 @@
+cat inicio
+cd ./misterio 
+ls
+grep "PISTA" cena-do-crime
+PISTA: A filmagem do caixa eletrônico está embaçada, mas mostra que o suspeito é um homem alto, pelo menos 1,83m de altura.
+PISTA: Encontramos uma carteira que provavelmente pertence ao assassino. Nenhum documento de identidade, apenas alguns trocados e carteirinhas dos grupos AAA, Delta SkyMiles, biblioteca e do Museu de História do Bash. Impossível rastrear as carteirinhas, e nenhuma delas possui nome, por algum motivo.
+PISTA: Interrogamos o garçom da cafeteria próxima à cena. Ele disse que uma mulher saiu da cafeteria logo antes de ouvirem os tiros. O nome dela era Annabel, tinha cabelo loiro curto e um sotaque da Nova Zelândia.
+cd associacoes/
+ ls
+AAA                     Biblioteca_da_Cidade  Museu_da_História_do_Bash
+AAdvantage              Clube_de_Campo        REI
+Academia_Fitness        Costco                United_Clube_de_Pontos
+Associação_de_ExAlunos  Delta_SkyMiles
+
+grep "Annabel" AAA
+Annabel Church
+
+grep "Annabel" Delta_SkyMiles
+
+grep "Annabel" Biblioteca_da_Cidade
+
+grep "Annabel" Museu_da_História_do_Bash
+Annabel Church
+Oluwasegun Annabel
+
+grep "Annabel Church" pessoas
+Annabel Church  F       38      Vila Buckingham, linha 179
+
+grep "Annabel Church" automoveis -3
+Placa L2E48EF
+Marca: BMW
+Cor: Laranja
+Proprietário: Annabel Church
+Altura: 1,65 m
+Peso: 91,2 kg
+
+grep "Oluwasegun Annabel" pessoas
+Oluwasegun Annabel      M       37      Rua Mattapan, linha 173
+
+
+
+grep "Oluwasegun Annabel" automoveis -3
+Placa 9R7TTGF
+Marca: Volkswagen
+Cor: Amarela
+Proprietário: Oluwasegun Annabel
+Altura: 1,55 m
+Peso: 108,9 kg
+
+LEIA A ENTREVISTA #699607 
+Carro honda azul com placa L337xx9
+LEIA A ENTREVISTA #9437737
+
+Placa L337DV9
+Marca: Honda
+Cor: Azul
+Proprietário: Joe Germuska
+Altura: 1,88 m
+Peso: 74,4 kg
+
+Placa L3375A9
+Marca: Honda
+Cor: Azul
+Proprietário: Jeremy Bowers
+Altura: 1,86 m
+Peso: 92,5 kg
+
+Placa L337WR9
+Marca: Honda
+Cor: Azul
+Proprietário: Jacqui Maher
+Altura: 1,88 m
+Peso: 59,0 kg
