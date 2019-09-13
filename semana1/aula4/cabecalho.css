@@ -1,6 +1,6 @@
 .tel_info {
     font-size:14px;
-    line-height: 0.4px;
+    line-height: 1px;
 }
 .telefone {
     width: 3%;
@@ -8,5 +8,4 @@
 .info {
     font-size:12px;
     width:2%;
-    
 }
