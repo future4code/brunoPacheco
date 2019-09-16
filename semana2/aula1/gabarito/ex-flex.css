@@ -3,6 +3,11 @@ body {
   margin: 0;
 }
 
+.top {
+  height: 50px;
+  display: flex;
+}
+
 .container {
   min-height: 100vh;
   display: flex;
@@ -15,12 +20,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
-.top {
-  height: 50px;
-  display: flex;
-}
-
 .middle {
   display: flex;
   flex-basis: 200px;
