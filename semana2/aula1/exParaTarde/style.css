@@ -5,7 +5,7 @@ body {
 
 .item {
     color: white;
-    text-align:center;
+    align-items:center;
     justify-items:center;
 }
 
@@ -14,16 +14,17 @@ body {
     grid-template-columns:1fr 1fr 1fr 1fr;
     grid-template-rows:1fr ;
     height:50px;
-    justify-content:space-around;
-    gap:10px;
+    margin-left:3px;
+    margin-right:3px;
+    margin-bottom:8px;
 }
+
 .container1{
     display:grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
-    grid-template-rows:1fr 1fr;
-    height:;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr;
     justify-content:space-around;
     gap:10px;
+    margin:3px;
 }
 
 .logo {
@@ -44,26 +45,26 @@ body {
 .content1 {
     background-color:green;
     grid-column:1/2;
-    
+    height:400px;
 }
 
 .meio {
-    grid-column:2/4;
+    grid-column:2/5;
 }
 
 .menu {
     background-color:yellow;
     height:50px;
-
 }
 
 .content2 {
     background-color:black;
     height:auto;
-
+    height:200px;
 }
 
 .content3 {
     background-color:purple;
-    grid-column:4/5;
+    grid-column:5/6;
+    height: 150px;
 }
