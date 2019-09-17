@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Exercício da Tarde</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            margin:0;
+            padding:0;
+        }
+        
+        #header {
+            background:red;
+            height: 30px;
+            width: 100%;
+
+            top:0;
+            color: white;
+            justify-items: center;
+            align-items: center;
+        }
+
+        #firstblock {
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr;
+            grid-gap:5px;
+            margin:20px;
+        }
+        
+        .azul {
+            background:blue;
+            color:white;
+            height:60px;
+        }
+
+        .amarelo {
+            background:yellow;
+            color:white;
+        }
+
+        .verde {
+            background:green;
+            color:white;
+        }
+
+        #secondblock {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            grid-gap:5px;
+            margin:0 20px 10px 20px;
+        }
+
+        #thirdblock {
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            grid-gap:5px;
+            padding:0 20px 10px 20px;
+        }
+        .preto {
+            background:black;
+            color:white;
+            height:180px;
+        }
+
+        .branco {
+            background:white;
+            color:black;
+            height:60px;
+            border-style:solid;
+            border-width:2px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <div id="header">Header</div>
+    </div>
+    <nav>
+        <div id="firstblock">
+            <div class="azul">1</div>
+            <div class="amarelo">2</div>
+            <div class="verde">3</div>
+            <div class="azul">4</div>
+            <div class="amarelo">5</div>
+            <div class="verde">6</div>
+        </div>
+        <div id="secondblock">
+            <div class="preto">7</div>
+            <div class="preto">8</div>
+        </div>
+        <div id="thirdblock">
+            <div class="branco">9</div>
+            <div class="branco">10</div>
+            <div class="branco">11</div>
+        </div>
+    </nav>
+</body>
+</html>
