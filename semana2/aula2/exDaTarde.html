@@ -5,13 +5,348 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Exercício da Tarde</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="1000px"  media="(max-width:800px)" href="medio.css">
-    <link rel="500px" media="(min-width:500) and (max-width:800px)" href="minimo.css">
+    <!--<link rel="stylesheet" href="style.css">
+    <link rel="800px"  media="(max-width:800px)" href="medio.css">
+    <link rel="500px" media="(min-width:500) and (max-width:800px)" href="minimo.css">-->
+    <style>
+            body {
+        margin:0;
+        padding:0;
+        }
 
+        #fullscreen {
+            display:grid;
+            grid-template-columns:1fr 4fr;
+        }
+
+        .menu {
+            margin:0;
+            background:burlywood;
+            position:fixed;
+            width:20%;
+            height:100%;
+        }
+
+        .ref_direita {
+            grid-column: 2/-1;
+        }
+
+        #header {
+            background:red;
+            height: 60px;
+            width: 100%;
+            top:0;
+            color: white;
+        }
+
+        #firstblock {
+            display:grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows:1fr 1fr;
+            grid-gap:20px;
+            margin:10px 50px 20px 50px;
+        }
+
+        .azul1, .azul4 {
+            background:blue;
+            color:white;
+            border-color:crimson;
+            height:160px;
+            border-style:solid;
+            border-width: 2px;
+        }
+
+        .amarelo2, .amarelo5 {
+            background:yellow;
+            color:white;
+            border-color:crimson;
+            border-style:solid;
+            border-width: 2px;
+        }
+
+        .verde3, .verde6 {
+            background:green;
+            color:white;
+            border-color:crimson;
+            border-style:solid;
+            border-width: 2px;
+        }
+
+        #secondblock {
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            grid-gap:20px;
+            margin:0 50px 20px 50px;
+        }
+
+        #thirdblock {
+            display:grid;
+            grid-template-columns:1fr 1fr 1fr;
+            grid-gap:20px;
+            padding:0 50px 10px 50px;
+        }
+
+        .preto7, .preto8 {
+            background:black;
+            height:400px;
+            color:white;
+            border-color:crimson;
+            border-style:solid;
+            border-width: 2px;
+        }
+
+        .branco9, .branco10, .branco11 {
+            background:white;
+            color:black;
+            height:120px;
+            border-style:solid;
+            border-width:2px;
+        }
+
+        @media (min-width:600px) and (max-width: 800px) {
+
+            #firstblock {
+                display:grid;
+                grid-template-columns: 1fr 1fr ;
+                grid-template-rows:1fr 1fr 1fr 1fr;
+                grid-gap:20px;
+                margin:10px 50px 20px 50px;
+            }
+            
+            .azul1 {
+                background:blue;
+                color:white;
+                border-color:crimson;
+                height:160px;
+                grid-column:1/2;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .amarelo2 {
+                background:yellow;
+                color:white;
+                grid-column:2/3;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+            }
+            
+            .verde3 {
+                background:green;
+                color:white;
+                grid-column:1/3;
+                height:160px;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .azul4 {
+                background:blue;
+                color:white;
+                border-color:crimson;
+                height:160px;
+                grid-column:1/2;
+                border-style:solid;
+                border-width: 2px;
+            }
+            
+            .amarelo5 {
+                background:yellow;
+                color:white;
+                grid-column:2/3;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .verde6 {
+                background:green;
+                color:white;
+                grid-column:1/3;
+                height:160px;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+            }
+            
+            .preto7, .preto8 {
+                background:black;
+                height:400px;
+                color:white;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            #thirdblock {
+            display:grid;
+            grid-template-columns:1fr 1fr ;
+            grid-gap:20px;
+            padding:0 50px 10px 50px;
+            }
+          
+            .branco9 {
+                background:white;
+                color:black;
+                height:120px;
+                grid-column:1/2;
+                border-style:solid;
+                border-width:2px;
+            }
+
+            .branco10 {
+                background:white;
+                color:black;
+                height:120px;
+                grid-column:2/3;
+                border-style:solid;
+                border-width:2px;
+            }
+            
+            .branco11 {
+                background:white;
+                color:black;
+                height:120px;
+                grid-column:1/3;
+                border-style:solid;
+                border-width:2px;
+            }
+        }
+    
+        @media (max-width:600px) {
+
+            #firstblock, #secondblock, #thirdblock {
+                display:grid;
+                grid-template-columns: 1fr ;
+                grid-template-rows:11fr;
+                grid-gap:20px;
+                margin:10px 50px 20px 50px;
+            }
+           
+            .azul1 {
+                background:blue;
+                color:white;
+                border-color:crimson;
+                height:100px;
+                grid-row:1/2;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .amarelo2 {
+                background:yellow;
+                color:white;
+                border-color:crimson;
+                height:100px;
+                grid-column:1/2;
+                grid-row:2/3;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .verde3 {
+                background:green;
+                color:white;
+                border-color:crimson;
+                height:100px;
+                grid-column:1/2;
+                grid-row:3/4;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .azul4 {
+                background:blue;
+                color:white;
+                border-color:crimson;
+                height:100px;
+                grid-column:1/2;
+                grid-row:4/5;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .amarelo5 {
+                background:yellow;
+                color:white;
+                border-color:crimson;
+                height:100px;
+                grid-column:1/2;
+                grid-row:5/6;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .verde6 {
+                background:green;
+                color:white;
+                border-color:crimson;
+                height:100px;
+                grid-column:1/2;
+                grid-row:6/7;
+                border-style:solid;
+                border-width: 2px;
+            }
+
+            .preto7 {
+                background:black;
+                height:100px;
+                color:white;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+                grid-column:1/2;
+                grid-row:7/8;
+            }
+
+            .preto8 {
+                background:black;
+                height:100px;
+                color:white;
+                border-color:crimson;
+                border-style:solid;
+                border-width: 2px;
+                grid-column:1/2;
+                grid-row:8/9;
+            }
+        
+            .branco9 {
+                background:white;
+                color:black;
+                height:100px;
+                border-style:solid;
+                border-width:2px;
+                grid-column:1/2;
+                grid-row:9/10;
+            }
+
+            .branco10 {
+                background:white;
+                color:black;
+                height:100px;
+                border-style:solid;
+                border-width:2px;
+                grid-column:1/2;
+                grid-row:10/11;
+            }
+
+            .branco11 {
+                background:white;
+                color:black;
+                height:100px;
+                border-style:solid;
+                border-width:2px;
+                grid-column:1/2;
+                grid-row:11/12;
+            }
+        }
+
+    </style>
 </head>
 <body>
-    <nav id="fullscreen">
+    <div id="fullscreen">
         <div class="menu">
             <p>First List</p>
             <ul>
@@ -30,7 +365,7 @@
                 <li>10</li>
             </ul>
         </div>
-        <section>
+        <div class="ref_direita">
             <div id="header">Header</div>
             <div id="firstblock">
                 <div class="azul1">1</div>
@@ -49,7 +384,7 @@
                 <div class="branco10">10</div>
                 <div class="branco11">11</div>
             </div>
-        </section>
-    </nav>
+        </div>
+    </div>
 </body>
 </html>
