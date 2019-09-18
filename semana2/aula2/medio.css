@@ -1,0 +1,111 @@
+@media (min-width:600px) and (max-width: 800px) {
+
+    #firstblock {
+        display:grid;
+        grid-template-columns: 1fr 1fr ;
+        grid-template-rows:1fr 1fr 1fr 1fr;
+        grid-gap:20px;
+        margin:10px 50px 20px 50px;
+    }
+    
+    .azul1 {
+        background:blue;
+        color:white;
+        border-color:crimson;
+        height:160px;
+        grid-column:1/2;
+        border-style:solid;
+        border-width: 2px;
+    }
+
+    .amarelo2 {
+        background:yellow;
+        color:white;
+        grid-column:2/3;
+        border-color:crimson;
+        border-style:solid;
+        border-width: 2px;
+    }
+    
+    .verde3 {
+        background:green;
+        color:white;
+        grid-column:1/3;
+        height:160px;
+        border-color:crimson;
+        border-style:solid;
+        border-width: 2px;
+    }
+
+    .azul4 {
+        background:blue;
+        color:white;
+        border-color:crimson;
+        height:160px;
+        grid-column:1/2;
+        border-style:solid;
+        border-width: 2px;
+    }
+    
+    .amarelo5 {
+        background:yellow;
+        color:white;
+        grid-column:2/3;
+        border-color:crimson;
+        border-style:solid;
+        border-width: 2px;
+    }
+
+    .verde6 {
+        background:green;
+        color:white;
+        grid-column:1/3;
+        height:160px;
+        border-color:crimson;
+        border-style:solid;
+        border-width: 2px;
+    }
+    
+    .preto7, .preto8 {
+        background:black;
+        height:400px;
+        color:white;
+        border-color:crimson;
+        border-style:solid;
+        border-width: 2px;
+    }
+
+    #thirdblock {
+        display:grid;
+        grid-template-columns:1fr 1fr ;
+        grid-gap:20px;
+        padding:0 50px 10px 50px;
+    }
+  
+    .branco9 {
+        background:white;
+        color:black;
+        height:120px;
+        grid-column:1/2;
+        border-style:solid;
+        border-width:2px;
+    }
+
+    .branco10 {
+        background:white;
+        color:black;
+        height:120px;
+        grid-column:2/3;
+        border-style:solid;
+        border-width:2px;
+    }
+    
+    .branco11 {
+        background:white;
+        color:black;
+        height:120px;
+        grid-column:1/3;
+        border-style:solid;
+        border-width:2px;
+    }
+}
