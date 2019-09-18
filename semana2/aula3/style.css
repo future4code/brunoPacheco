@@ -1,0 +1,134 @@
+body {
+    margin:0;
+    padding:0;
+    display:grid;
+    grid-template-columns:100%;
+    grid-template-rows:60px 1fr;
+}
+
+header {
+    background:orange;
+    height:60px;
+    width:100%;
+    display:grid;
+    grid-template-columns:50% 50%;
+    position:fixed;
+}
+
+.logo {
+    font-size:25px;
+    font-family: arial;
+    }
+
+.buscar {
+   
+}
+
+section {
+    grid-row:2/3;
+    display:grid;
+    grid-template-columns:25% 25% 25% 25% ;
+    grid-template-rows: 120px 320px;
+    padding:30px;
+    margin:55px 50px 100px 50px;
+    align-items:center;
+    justify-items: center;
+}
+
+img {
+    width:180px;
+    height:180px;
+}
+.media1{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:1/2;
+}
+
+.media2{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:1/2;
+}
+
+.media3{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:1/2;
+}
+
+.media4{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:1/2;
+}
+
+.media5{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:2/-1;
+}
+
+
+.media6{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:2/-1;
+}
+
+.media7{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:2/-1;
+}
+
+.media8{
+    background:white;
+    border-style: solid;
+    width:180px;
+    height:180px;
+    border-width:1px;
+    grid-row:2/-1;
+}
+
+nav {
+    margin:60px;
+    align-items: center;
+}
+
+video {
+    width:800px;
+}
+footer {
+    background:gray;
+    bottom:0;
+    margin:0;
+    padding:10;
+    position:fixed;
+    bottom:0;
+    width:100%;
+    height:60px;
+    font-size:25px;
+    font-family: arial;
+}
