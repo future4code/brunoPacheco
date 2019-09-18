@@ -39,6 +39,7 @@ img {
     width:180px;
     height:180px;
 }
+
 .media1{
     background:white;
     border-style: solid;
@@ -83,7 +84,6 @@ img {
     border-width:1px;
     grid-row:2/-1;
 }
-
 
 .media6{
     background:white;
