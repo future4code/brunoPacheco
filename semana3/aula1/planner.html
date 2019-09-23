@@ -52,9 +52,20 @@
             let diaDaSemana = document.querySelector("#diasDaSemana").value;
             const diaSelecionado = "dia-" + diaDaSemana;
             const listaDiaDaSemanaSelecionado = document.querySelector("#" + diaSelecionado);
+            if(valorDoInput) {
             listaDiaDaSemanaSelecionado.innerHTML += "<li>" + valorDoInput + "</li>";
             document.querySelector("input").value ="";
+            }
+            else {
+                alert("O campo deve conter a tarefa desejada!");
+            }
         }
+
+        /*function limparTarefa() {
+            const limparConteudo = event.click;
+            console.log(value);
+        }*/
+
     </script>
 </head>
 <body>
@@ -72,6 +83,7 @@
                 <option value="7">Domingo</option>
             </select>
             <button onclick="criarTarefa()">Criar Tarefa</button>
+            <button onclick="limparTarefa()">Limpar Tarefa</button>
         </div>
     </nav>
     <h1>Minha Semana</h1>

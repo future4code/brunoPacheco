@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<script>
+    function createItem(){
+        let itemInput = document.querySelector("input").value;
+        let itemList = document.querySelector("ul");
+        if(itemInput){
+            let newLi = document.createElement("li");
+            newLi.innerHTML = itemInput;
+            newLi.onclick = removeitem;
+            itemList.appendChild(newLi);
+            document.querySelector("input").value = "";
+        } else {
+            alert("Não é possível inserir um elemento vazio");
+        }
+    }
+    function checkEnter(event){
+        if (event.key === "Enter"){
+            createItem();
+        }
+    }
+    function removeitem(event){
+        const target = event.target
+        const value = target.innerHTML
+        debugger
+        if(confirm(`tem certeza que deseja remover o item "${value}" ?`)){
+            target.parentNode.removeChild(target);
+        }
+    }
+</script>
+
+<body>
+    <h1>Minha Lista de Compras</h1>
+    
+    <input type="text" id="item" onkeydown="checkEnter(event)">
+    <button onclick="createItem()">Salvar</button>
+
+    <hr>
+    <ul id="item-list">
+
+    </ul>
+</body>
+</html>
