@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Minha Semana</title>
+    <style>
+        body {
+            margin:0;
+            padding:0;
+            display:flex;
+            flex-direction:column;
+        }
+
+        nav {
+            display:flex;
+            flex-basis:80px;
+            justify-content:center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        section {
+            height:60vh;
+            display:grid;
+            grid-template-columns:repeat(7,1fr);
+        }
+
+        .diasDaSemana{
+            border-left: solid 1px;
+            border-right:solid 1px;
+            text-align:center;
+        }
+
+        footer {
+            flex-basis:60px;
+            align-content: flex-end;
+        }
+
+        ul{
+            list-style-type: none;
+        }
+
+    </style>
+    <script>
+        function criarTarefa() {
+            let valorDoInput = document.querySelector("#textBox").value;
+            let diaDaSemana = document.querySelector("#diasDaSemana").value;
+            const diaSelecionado = "dia-" + diaDaSemana;
+            const listaDiaDaSemanaSelecionado = document.querySelector("#" + diaSelecionado);
+            if(valorDoInput) {
+            listaDiaDaSemanaSelecionado.innerHTML += "<li>" + valorDoInput + "</li>";
+            document.querySelector("input").value ="";
+            }
+            else {
+                alert("O campo deve conter a tarefa desejada!");
+            }
+        }
+
+        /*function limparTarefa() {
+            const limparConteudo = event.click;
+            console.log(value);
+        }*/
+
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="insercaoDeTarefa">
+            <label type="text">Nova Tarefa</label>
+            <input type="text" name="textBox" placeholder="Nova Tarefa" id="textBox">
+            <select name="diasDaSemana" id="diasDaSemana">
+                <option value="1">Segunda-Feira</option>
+                <option value="2">Terça-Feira</option>
+                <option value="3">Quarta-Feira</option>
+                <option value="4">Quinta-Feira</option>
+                <option value="5">Sexta-feira</option>
+                <option value="6">Sábado</option>
+                <option value="7">Domingo</option>
+            </select>
+            <button onclick="criarTarefa()">Criar Tarefa</button>
+            <button onclick="limparTarefa()">Limpar Tarefa</button>
+        </div>
+    </nav>
+    <h1>Minha Semana</h1>
+    <hr>
+    <section>
+        <div class="diasDaSemana" >
+            <h3>Segunda-feira</h3>
+            <ul id="dia-1"></ul>
+        </div>
+        <div class="diasDaSemana" >
+            <h3>Terça-feira</h3>
+            <ul id="dia-2"></ul>
+        </div>  
+        <div class="diasDaSemana" >
+            <h3>Quarta-feira</h3>
+            <ul id="dia-3"></ul>
+        </div>
+        <div class="diasDaSemana" >
+            <h3>Quinta-feira</h3>
+            <ul id="dia-4"></ul>
+        </div>
+        <div class="diasDaSemana" >
+            <h3>Sexta-feira</h3>
+            <ul id="dia-5"></ul>
+        </div>
+        <div class="diasDaSemana" >
+            <h3>Sábado</h3>
+            <ul id="dia-6"></ul>
+        </div>
+        <div class="diasDaSemana" >
+            <h3>Domingo</h3>
+            <ul id="dia-7"></ul>
+        </div>
+    </section>
+    <hr>
+    <footer>
+        <h3>Lembrete</h3>
+        <p></p>
+    </footer>
+</body>
+</html>
