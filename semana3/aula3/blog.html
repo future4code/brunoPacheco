@@ -19,18 +19,41 @@
                 <input type="text" id="autor" placeholder="Autor do post"><br>
                 <label name="autor">Conteúdo</label><br>
                 <textarea type="text" id="conteudo" rows="10" cols="30" placeholder="Conteúdo do post"></textarea><br>
-                <button onclick="publicarPost()">Publicar </button>
             </form>
+            <button onclick="publicarPost()">Publicar </button>
         </div>
         
         <div class="meusPosts">
             <h3>Meus Posts</h3>
-            <ul>
-                
+            <ul class="painelDePost">
+
             </ul>
         </div>
     </section>
-</body>
 <script>
+    class Post {
+        constructor(titulo, autor, conteudo){
+            this.titulo = titulo;
+            this.autor = autor;
+            this.conteudo = conteudo;
+        }
+    }
+    
+    function publicarPost() {
+        const titulo = document.getElementById("titulo").value;
+        const autor = document.getElementById("autor").value;
+        const conteudo = document.getElementById("conteudo").value;
+        const painelDePost = new Post (titulo, autor, conteudo);
+    }
+
+    const posts = [];
+
+
+    for(let posts of painelDePost){
+        painelDePost.innerHTML += "<li>" + posts + "</li>";
+    }
+
 </script>
+</body>
+
 </html>
