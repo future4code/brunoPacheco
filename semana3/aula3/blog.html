@@ -20,40 +20,62 @@
                 <label name="autor">Conteúdo</label><br>
                 <textarea type="text" id="conteudo" rows="10" cols="30" placeholder="Conteúdo do post"></textarea><br>
             </form>
-            <button onclick="publicarPost()">Publicar </button>
+            <button  onclick="publicarPost()">Publicar </button>
         </div>
         
         <div class="meusPosts">
             <h3>Meus Posts</h3>
-            <ul class="painelDePost">
+            <ul class="listaDePost" >
 
             </ul>
         </div>
     </section>
-<script>
-    class Post {
-        constructor(titulo, autor, conteudo){
-            this.titulo = titulo;
-            this.autor = autor;
-            this.conteudo = conteudo;
+    </body>
+    <script>
+                    
+        class Post {
+            constructor(titulo, autor, conteudo){
+                this.titulo = titulo;
+                this.autor = autor;
+                this.conteudo = conteudo;
+            }
         }
-    }
-    
-    function publicarPost() {
-        const titulo = document.getElementById("titulo").value;
-        const autor = document.getElementById("autor").value;
-        const conteudo = document.getElementById("conteudo").value;
-        const painelDePost = new Post (titulo, autor, conteudo);
-    }
+        //a classe servirá para que a cada novo post, não precise criar uma function diferente com as mesmas propriedades;
+                    
+        let armazenarPost = [];
+        /*let é uma variável que pode ser reescrita;
+        const é uma variável definida,ou seja, é impedida de ser reescrita;*/
 
-    const posts = [];
+        function publicarPost() {
+            const titulo = document.getElementById("titulo").value;
+            const autor = document.getElementById("autor").value;
+            const conteudo = document.getElementById("conteudo").value;
+            const novoPost = new Post (titulo, autor, conteudo);
+            armazenarPost.push(novoPost);
+            console.log(armazenarPost); 
+            inserirPosts();
+        }
+        /*função está atrelada a um botão onde irá coletar cada string do input e armazenar em uma variável const 
+        (que nesse caso não é necessario mudá-la). Crio uma nova var chamada novoPost para armazenar as infos novas
+        já em uma classe declara.
+        Feito isso, é necessário uma forma de jogar esse post novo em uma array (armazenarPost) e para isso uso o push.
+        Com tudo pronto, uso o console.log para imprimir o resultado e ver se tudo ocorreu bem até aqui. */
+        
+        const listaDePost = document.querySelector(".listaDePost"); 
+        console.log(listaDePost);
 
+        function inserirPosts() {
+            listaDePost.innerHTML = ""
 
-    for(let posts of painelDePost){
-        painelDePost.innerHTML += "<li>" + posts + "</li>";
-    }
+            for (let post of armazenarPost) {
+                listaDePost.innerHTML += "<li>" + post.titulo + " " + post.autor + " " + post.conteudo + "</li>";
+            }           
+        }
+        /* Para inserir esses posts no espaço de posts publicados, eu usei uma função onde o FOR será usado para que o post 
+        da var array armazenarPost seja incrementado todas as vezes que a função for acionada. O innerHTML troca todo o conteúdo
+        antigo pelo novo. No caso eu disse que o conteúdo da listaDePost antigo receberá uma info nova somada as demais 
+        e depois atualizará.*/
 
-</script>
-</body>
+    </script>   
 
 </html>
