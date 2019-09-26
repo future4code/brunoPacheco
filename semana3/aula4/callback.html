@@ -24,12 +24,13 @@
             <h2>Adicionar despesa</h2>
             <form>
                 <label>Valor</label><br>
-                <input type="text" placeholder="Digite o valor" id="valor"><br>
+                <input type="number" placeholder="Digite o valor" id="valor"><br>
                 <select id="categoria">
                     <option value="casa">Despesas de casa</option>
                     <option value="festa">Despesas de festa</option>
                     <option value="transporte">Despesas de transporte</option>
                     <option value="alimentacao">Despesas de alimentação</option>
+                    <option value="outros">Outros</option>
                 </select><br>
                 <textarea rows="10" cols="30" id="obs" placeholder="Se desejar, pode inserir algum comentário."></textarea>
             </form>
@@ -43,6 +44,7 @@
                     <option value="festa">Despesas de festa</option>
                     <option value="transporte">Despesas de transporte</option>
                     <option value="alimentacao">Despesas de alimentação</option>
+                    <option value="outros">Outros</option>
                 </select><br>
                 <label>Valor máximo:</label>
                 <input type="text" id="valorMaximo"><br>
@@ -51,7 +53,7 @@
             </form>
             <button onclick=filtrar()>Filtrar</button>
             <button onclick=limparFiltro()>Limpar Filtro</button>
-            <table id="tabelaDeFiltro">
+            <table id="tabelaDoFiltro">
                 <tr>
                     <th>Valor</th>
                     <th>Descrição</th>
@@ -91,22 +93,27 @@
         let novaDespesa = new Despesa(valor, categoria, obs);
         tabelaDeDespesa.push(novaDespesa);
         if (valor !== "" && obs !== "" || valor !== "") {
-            return inserirNoExtrato();
-        document.querySelector("#valor").value = " ";
-        document.querySelector("#obs").value=  " ";
+            document.querySelector("#valor").value = "";
+            document.querySelector("#obs").value = "";
+            return inserirTabela();   
         } 
-        
-        
+        else {
+            alert("Por favor, preencha o Valor se deseja inserir!")
+        }
     }
     //criei uma constante que irá coletar tudo o que tem na tabelaDeExtrato e armazenar na mesma;
     const tabelaDoExtrato = document.querySelector("#tabelaDeExtrato");  
+
+    const tabelaDoFiltro = document.querySelector("#tabelaDoFiltro");
     /*function criada para inserir as despesas no extrato. Dentro, criei uma constante chamada ultimaDespesa.
     Ela receberá a partir da array tabelaDeDespesa uma posição que será a mesma tabelaDeDespesa total menos 1*/
-    function inserirNoExtrato() {
+    function inserirTabela() {
         const ultimaDespesa = tabelaDeDespesa[tabelaDeDespesa.length -1]
         tabelaDoExtrato.innerHTML += "<tr>" + "<td>" + ultimaDespesa.valor + "</td>" +  "<td>" + ultimaDespesa.categoria + "</td>" + "<td>" + ultimaDespesa.obs + "</td>" + "</tr>";
+        tabelaDoFiltro.innerHTML += "<tr>" + "<td>" + ultimaDespesa.valor + "</td>" +  "<td>" + ultimaDespesa.categoria + "</td>" + "<td>" + ultimaDespesa.obs + "</td>" + "</tr>";
     }
-
+    
+    
     //
     function filtrar() {
 
