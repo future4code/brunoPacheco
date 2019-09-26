@@ -33,7 +33,7 @@
                 </select><br>
                 <textarea rows="10" cols="30" id="obs" placeholder="Se desejar, pode inserir algum comentário."></textarea>
             </form>
-            <button onclick=adicionarDespesa()>Adicionar</button>
+            <button onclick=cadastrarDespesa()>Cadastrar Despesa</button>
         </div>
         <div class="filtro">
             <h2>Filtrar despesa</h2>
@@ -49,34 +49,31 @@
                 <label>Valor mínimo:</label>
                 <input type="text" id="valorMinimo>">
             </form>
-            <table >
+            <button onclick=filtrar()>Filtrar</button>
+            <button onclick=limparFiltro()>Limpar Filtro</button>
+            <table id="tabelaDeFiltro">
                 <tr>
                     <th>Valor</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
                 </tr>
             </table>
-            <ul id="tabelaDeDespesa">
-
-            </ul>
         </div>
         <div class="extrato">
             <h2>Extrato</h2>
             <p id="somaDosValores"></p>
-            <table >
+            <table id="tabelaDeExtrato">
                 <tr>
                     <th>Valor</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
                 </tr>
             </table>
-            <ul id="tabelaDeExtrato">
-                    
-            </ul>   
         </div>
     </section>
 </body>
 <script>
+    //criei a classe Despesa para informar tudo o que futuras despesas terão como propriedades;
     class Despesa {
         constructor(valor, categoria, obs){
             this.valor = valor;
@@ -84,25 +81,40 @@
             this.obs = obs;
         }
     }
-    
+    //array com o nome tabelaDeDespesa;
     let tabelaDeDespesa = [];
-
-    function adicionarDespesa()  {
-        const valor = document.querySelector("#valor").value;
-        const categoria = document.querySelector("#categoria").value;
-        const obs = document.querySelector("#obs").value;
-        const novaDespesa = new Despesa(valor, categoria, obs);
+    //Nessa função eu estou adicionando uma nova despesa e chamando a função inserirNoExtrato;
+    function cadastrarDespesa()  {
+        let valor = document.querySelector("#valor").value;
+        let categoria = document.querySelector("#categoria").value;
+        let obs = document.querySelector("#obs").value;
+        let novaDespesa = new Despesa(valor, categoria, obs);
         tabelaDeDespesa.push(novaDespesa);
-        console.log(tabelaDeDespesa);
-        inserirNoExtrato();
+        if (valor !== "" && obs !== "" || valor !== "") {
+            return inserirNoExtrato();
+        document.querySelector("#valor").value = " ";
+        document.querySelector("#obs").value=  " ";
+        } 
+        
+        
     }
-
+    //criei uma constante que irá coletar tudo o que tem na tabelaDeExtrato e armazenar na mesma;
     const tabelaDoExtrato = document.querySelector("#tabelaDeExtrato");  
-    console.log(tabelaDoExtrato);
-
+    /*function criada para inserir as despesas no extrato. Dentro, criei uma constante chamada ultimaDespesa.
+    Ela receberá a partir da array tabelaDeDespesa uma posição que será a mesma tabelaDeDespesa total menos 1*/
     function inserirNoExtrato() {
         const ultimaDespesa = tabelaDeDespesa[tabelaDeDespesa.length -1]
-        tabelaDoExtrato.innerHTML += "<li>" + ultimaDespesa.valor + " " + ultimaDespesa.categoria + " " + ultimaDespesa.obs + "</li>";
+        tabelaDoExtrato.innerHTML += "<tr>" + "<td>" + ultimaDespesa.valor + "</td>" +  "<td>" + ultimaDespesa.categoria + "</td>" + "<td>" + ultimaDespesa.obs + "</td>" + "</tr>";
+    }
+
+    //
+    function filtrar() {
+
+    }
+
+    //
+    function limparFiltro() {
+
     }
 </script>
 </html>
