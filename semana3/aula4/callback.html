@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Callback</title>
+    <style>
+
+        body {
+            margin:0;
+
+        }
+        section {
+            display:flex;
+            flex-direction:row;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="cadastro">
+            <h2>Adicionar despesa</h2>
+            <form>
+                <label>Valor</label><br>
+                <input type="text" placeholder="Digite o valor" id="valor"><br>
+                <select id="categoria">
+                    <option value="casa">Despesas de casa</option>
+                    <option value="festa">Despesas de festa</option>
+                    <option value="transporte">Despesas de transporte</option>
+                    <option value="alimentacao">Despesas de alimentação</option>
+                </select><br>
+                <textarea rows="10" cols="30" id="obs" placeholder="Se desejar, pode inserir algum comentário."></textarea>
+            </form>
+            <button onclick=adicionarDespesa()>Adicionar</button>
+        </div>
+        <div class="filtro">
+            <h2>Filtrar despesa</h2>
+            <form>
+                <select id="categoriafiltro">
+                    <option value="casa">Despesas de casa</option>
+                    <option value="festa">Despesas de festa</option>
+                    <option value="transporte">Despesas de transporte</option>
+                    <option value="alimentacao">Despesas de alimentação</option>
+                </select><br>
+                <label>Valor máximo:</label>
+                <input type="text" id="valorMaximo"><br>
+                <label>Valor mínimo:</label>
+                <input type="text" id="valorMinimo>">
+            </form>
+            <table id="tabelaDeDespesa">
+                <tr>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                </tr>
+            </table>
+        </div>
+        <div class="extrato">
+            <h2>Extrato</h2>
+
+            <p id="somaDosValores"></p>
+            <table id="tabelaDeDespesa">
+                <tr>
+                    <th>Valor</th>
+                    <th>Descrição</th>
+                    <th>Categoria</th>
+                </tr>
+            </table>   
+        </div>
+    </section>
+</body>
+<script>
+    class Despesa {
+        constructor(valor, categoria, obs){
+            this.valor = valor;
+            this.categoria = categoria;
+            this.obs = obs;
+        }
+    }
+    
+    let listaDeDespesa = [];
+
+    function adicionarDespesa()  {
+        const valor = document.querySelector("#valor").value;
+        const categoria = document.querySelector("#categoria").value;
+        const obs = document.querySelector("#obs").value;
+        const novaDespesa = new Despesa(valor, categoria, obs);
+        listaDeDespesa.push(novaDespesa);
+        console.log(listaDeDespesa);
+    }
+</script>
+</html>
