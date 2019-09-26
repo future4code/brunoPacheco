@@ -49,25 +49,30 @@
                 <label>Valor mínimo:</label>
                 <input type="text" id="valorMinimo>">
             </form>
-            <table id="tabelaDeDespesa">
+            <table >
                 <tr>
                     <th>Valor</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
                 </tr>
             </table>
+            <ul id="tabelaDeDespesa">
+
+            </ul>
         </div>
         <div class="extrato">
             <h2>Extrato</h2>
-
             <p id="somaDosValores"></p>
-            <table id="tabelaDeDespesa">
+            <table >
                 <tr>
                     <th>Valor</th>
                     <th>Descrição</th>
                     <th>Categoria</th>
                 </tr>
-            </table>   
+            </table>
+            <ul id="tabelaDeExtrato">
+                    
+            </ul>   
         </div>
     </section>
 </body>
@@ -80,15 +85,24 @@
         }
     }
     
-    let listaDeDespesa = [];
+    let tabelaDeDespesa = [];
 
     function adicionarDespesa()  {
         const valor = document.querySelector("#valor").value;
         const categoria = document.querySelector("#categoria").value;
         const obs = document.querySelector("#obs").value;
         const novaDespesa = new Despesa(valor, categoria, obs);
-        listaDeDespesa.push(novaDespesa);
-        console.log(listaDeDespesa);
+        tabelaDeDespesa.push(novaDespesa);
+        console.log(tabelaDeDespesa);
+        inserirNoExtrato();
+    }
+
+    const tabelaDoExtrato = document.querySelector("#tabelaDeExtrato");  
+    console.log(tabelaDoExtrato);
+
+    function inserirNoExtrato() {
+        const ultimaDespesa = tabelaDeDespesa[tabelaDeDespesa.length -1]
+        tabelaDoExtrato.innerHTML += "<li>" + ultimaDespesa.valor + " " + ultimaDespesa.categoria + " " + ultimaDespesa.obs + "</li>";
     }
 </script>
 </html>
