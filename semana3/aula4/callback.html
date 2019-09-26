@@ -39,7 +39,7 @@
         <div class="filtro">
             <h2>Filtrar despesa</h2>
             <form>
-                <select id="categoriafiltro">
+                <select id="categoriaDoFiltro">
                     <option value="casa">Despesas de casa</option>
                     <option value="festa">Despesas de festa</option>
                     <option value="transporte">Despesas de transporte</option>
@@ -56,8 +56,8 @@
             <table id="tabelaDoFiltro">
                 <tr>
                     <th>Valor</th>
-                    <th>Descrição</th>
                     <th>Categoria</th>
+                    <th>Descrição</th>
                 </tr>
             </table>
         </div>
@@ -67,8 +67,8 @@
             <table id="tabelaDeExtrato">
                 <tr>
                     <th>Valor</th>
-                    <th>Descrição</th>
                     <th>Categoria</th>
+                    <th>Descrição</th>
                 </tr>
             </table>
         </div>
@@ -113,12 +113,12 @@
         tabelaDoFiltro.innerHTML += "<tr>" + "<td>" + ultimaDespesa.valor + "</td>" +  "<td>" + ultimaDespesa.categoria + "</td>" + "<td>" + ultimaDespesa.obs + "</td>" + "</tr>";
     }
     
-    
     //
     function filtrar() {
-
+        let categoria = document.querySelector("#categoriaDoFiltro").value;
+        let valorMaximo = document.querySelector("#valorMaximo").value;
+        let valorMinimo = document.querySelector("#valorMinimo").value;
     }
-
     //
     function limparFiltro() {
 
