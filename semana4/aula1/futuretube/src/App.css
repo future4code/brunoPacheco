@@ -20,3 +20,127 @@
 .App-link {
   color: #09d3ac;
 }
+
+body {
+  margin:0;
+  display:flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background:orange;
+  height:60px;
+  width:100%;
+  display:flex;
+  padding:0;
+  justify-content: space-between;
+  align-items:center;
+}
+
+.logo h1, .buscar {
+  font-family: arial;
+  margin:10px;
+}
+
+.container {
+  flex-grow:1;
+  display:grid;
+  grid-template-columns:200px auto;
+}
+
+#menu {
+  list-style-type: none;
+  margin: 5px;
+  padding: 20px;
+  font-size:22px;
+  border-right:2px solid gray;
+  height:75vh;
+}
+
+a {
+  text-decoration: none;
+}
+
+section  {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  grid-template-rows:250px ;
+  margin:10px;
+  padding:10px;
+  justify-items: center;
+}
+
+img {
+  height:160px;
+  width:180px;
+}
+
+.media{
+  background:white;
+  width:180px;
+  height:210px;
+  border-style: solid;
+  border-color: green;
+  border-width:2px;  
+}
+
+footer {
+  background:gray;
+  width:100%;
+  height:60px;   
+  font-size:25px;
+  font-family: arial;
+  display:flex;
+  padding:0;
+  justify-content: left;
+  align-items:center;
+}
+
+footer h3 {
+  color:white;
+  margin:10px;
+}
+
+.button {
+  text-align:right;
+}
+
+.container2 {
+  flex-grow:1;
+  display:grid;
+  grid-template-columns:200px auto 200px;
+}
+
+.paginaDeVideo  {
+  display:grid;
+  grid-template-columns:auto 200px;
+  margin:10px;
+  padding:10px;
+  justify-items: center;
+}
+
+.m.menuright {
+  grid-column:-1/-2;
+  display:flex;
+  flex-direction: column;
+}
+.media2 {
+  display:flex;
+}
+
+.media2 img {
+  width:60px;
+  height:60px;
+  margin:10px;
+}
+
+video {
+  width:600px;
+}
+
+input {
+  width:180px;
+  height:30px;
+  align-items: right;
+}
