@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lista de Exercícios</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function exercicio1dot1() {//Exercícios de Interpretação de Códigos - 1º exercício.
+
+        /*A função converorDeMoeda contém um parênteses que será inserido o valor em dolar
+        e uma variável cotacao que irá perguntar ao usuário para informar a cotação do dolar. Esse prompt 
+        receberá um valor numérico. O return finalizará a função com um texto da moeda corrente mais o valor 
+        que foi definido entre os parênteses multiplicado pela cotação do dolar digitado através do prompt.
+        Em uma variável global chamada de meuDinheiro, chamo a função citada acima com o valor de 100 dolares
+        que realizará a função citada acima.
+        Em seguida, é impresso na tela o texto R$ mais a operação matemática de 100 vezes a cotação do dolar.
+        */
+    }
+
+    function exercicio1dot2() {//Exercícios de Interpretação de Códigos - 2º exercício.
+
+        /*Temos uma função chamada investeDinheiro que tem dois parâmetros, tipoDeInvestimento e valor, uma variável valorAposInvestimento 
+        e um switch que irá coletar o parametro tipoDeInvestimento e comparar com cada tipo. Caso ele se encaixe em algum dos cases, uma 
+        operação de multiplicação irá pegar o parâmetro valor e multiplicar pela sua taxa resultando em uma variável valorAposInvestimento
+        (essa operação é conhecida como vp=vf/(1+i)^n). Caso o parâmetro não corresponda ao valor de alguma case, é informado ao usuário 
+        através de um alert com a mensagem de que o tipo de investimento está incorreto. O return ao final da function faz com que a mesma 
+        encerre e apresente a variável valorAposInvestimento. Ao informar em novas variaveis o novoMontante e segundoMontante, chama-se a
+        function investeDinheiro com os parâmentros ações,150 e tesouro direto e 200 respectivamente. No novoMontante é apresentado na tela
+        a seguinte informação do valorAposInvestimento de 165. No segundoMontante é apresentado na tela a seguinte informação :Tipo de
+        nvestimento informado incorreto! .
+        */
+    }
+
+    function exercicio1dot3() {//Exercícios de Interpretação de Códigos - 3º exercício.
+        /*
+        Aqui temos três variáveis const(não mudam) de arrays onde a primeira nomeada de numeros com vários objetos inseridos, uma segunda 
+        nomeada array1 e a outra array2 (ambas sem objetos). Ao empregar o for, queremos dizer que cada objeto dentro do array numeros,
+        será colocado em um if com uma lógica de separar os pares caso o numero dividido por dois tiver como resto 0, será inserido para a array1 e
+        e se for extremamente diferente de 0, ou seja 1, será inserido para a array2.
+        Na tela serão impressos 3 informações:
+        -a primeira irá imprimir na tela o texto "Quantidade total de números" mais a quantidade de propriedades contidas na array numeros;
+        -a segunda apresentará a array1 cujo o seu conteúdo é da quantidade de  números pares;
+        -por último, a array2 apresentará a quantidade de números ímpares;
+        */
+    }
+
+    function exercicio1dot4() {//Exercícios de Interpretação de Códigos - 4º exercício.
+        /*Aqui temos também três variáveis mas apenas a primeira é uma array que não muda nomeada de números enquanto as outras duas são let e recebem
+        os nomes de numero1 e numero2 com os valores infinity e 0 respectivamente (lembrando que todas são variáveis globais). Para a propriedade chamada numero detro da array numeros, iremos usar
+        novamente um if para a lógica seguinte:
+        -se o primeiro numero for menor que a var numero1, o numero1 receberá o valor de numero;
+        -se esse mesmo numero for maior que a var numero2, o numero2 receberá também o valor de numero;
+        Ao fazer todo o loop com todos os objetos da array numeros, é impresso na tela dois valores:
+        -o valor de numero1 que é 1590;
+        -o valor de numero2 que é 1590;
+        */
+    }
+
+    function exercicio2dot1() {//Exercícios de Lógica de Programação - 1º exercício.
+        let numero = [1,2,3,4,5];
+
+        let adicionar = function(numeroSolicitado){
+            return numeroSolicitado;
+            numero.push(adicionar);
+            console.log("A quantidade de números é de", numero.length);
+            console.log("A posição do número 4 é", numero.indexof(4));
+        }
+        
+    }
+
+    function exercicio2dot2() {//Exercícios de Lógica de Programação - 2º exercício.
+        /*
+        a)true e false e true;
+        b)(true e false) ou true;
+        c)(false ou true) e (false ou true);
+        d)(true e false) ou (true e true);
+        e)false e false ou (true e true e true);
+        */
+    }
+    
+    function exercicio2dot3() {
+        /*Não, pois não se sabe o que há dentro da const quantidadeDeNumerosPares e deve-se apresentar a quantidade de números pares e não o i 
+        multiplicado por 2.
+        */
+        numeros(3);
+        const listaNumerosPares = [0,2,4,6,8,10];
+        const numerosPares = [];
+
+        const numeros = function(n){
+            listaNumerosPares.filter(_,_,n)
+            let i = 0;
+
+            while (i<n){
+                numerosPares.push(listaNumerosPares.indexof(i));
+                i++
+                numerosPares += numerosPares 
+                }  
+            }
+            return numerosPares ; 
+            console.log(numerosPares);
+        }
+    }
+
+    function exercicio2dot4() {//Exercícios de Lógica de Programação - 4º exercício.
+        triangulo(10,12,13)
+        function triangulo(valA,valB,valC) {
+            const valorA = valA;
+            const valorB = valB;
+            const valorC = valC;
+            if ((valorA = valorB) && (valorB = valorC)){
+                console.log("Esse triângulo é equilátero");
+            }
+            else if((valorA = valorB) && (valorB !=valorC)) {
+                console.log("Esse triângulo é isósceles");
+            }
+            else {
+                console.log("Esse triângulo é escaleno");
+            }
+        }
+    }
+
+    function exercicio2dot5() {//Exercícios de Lógica de Programação - 5º exercício.
+
+        function testeDeNumeros(num1, num2){
+
+            if (num1>num2){
+                console.log( "O maior é" + num1);
+            }else {
+                console.log("O maior é" + num2) ;
+            } 
+            if (num1 % num2 === 0){
+                console.log(num1 + "é divisível por" + num2);
+            }else {
+                console.log(num1 + "não é divisível por" + num2);
+            }
+            if (num2 % num1 === 0){
+                console.log(num2 + "é divisível por" + num1) ;
+            }else {
+                console.log( num2 + "não é divisível por" + num1);
+            }    
+            if((num1-num2) && (num1-num2)>0 ){
+                console.log("A diferença entre eles é:" + (num1-num2));
+            }else if((num2-num1) && (num2-num1)>0 ){
+                console.log("A diferença entre eles é:" + (num2-num1));
+            }
+            
+        }
+    
+    }
+
+    function exercicio3dot1() {//Exercícios de Funções - 1º exercício.
+        
+        const listaDeNumeros = [0,1,2,3,4,5,6,7,8,9,10];
+        qualEhOSegundo()
+        function qualEhOSegundo() {
+            let numeroMaior = 0; 
+            let numeroMenor = Infinity; 
+            let segundoMaior = 0;
+            let segundoMenor = Infinity;  
+
+            for(let numero of listaDeNumeros){
+
+                if (numero > numeroMaior){
+                    numeroMaior = numero;
+                }
+
+                if (numero < numeroMenor){
+                    numeroMenor = numero;
+                }
+            }
+            console.log(numeroMaior);
+            console.log(numeroMenor);
+
+            for(let numero of listaDeNumeros){
+
+                if (numero < numeroMaior){
+                    segundoMaior = numero;
+                }
+
+                if ((numero >numeroMenor) && (numero<segundoMenor)){
+                    segundoMenor = numero;
+                }
+            } 
+            console.log(segundoMaior);
+            console.log(segundoMenor);
+        }
+        
+         
+        
+    }
+
+    function exercicio3dot2() {//Exercícios de Funções - 2º exercício.
+        
+        const funcao = function(msg){
+           msg = alert("Hello Future4");
+        }
+    }
+
+    function exercicio4dot1(){//Exercícios de Objetos - 1º exercício.
+        /*Arrays são variáveis que comportam uma lista de objetos definidos. Os objetos contém propriedades e dentro de cada 
+        propriedade há um valor. Esses objetos podem ter a mesma classe mas seus valores são diferentes.
+    */
+   }
+
+    function exercício4dot2(){//Exercícios de Objetos - 2º exercício.
+        function criaRetangulo(ladoUm, ladoDois){
+           const lado1 = ladoUm;
+           const lado2 = ladoDois;
+
+            let retangulo = {
+                largura:lado1;
+                altura:lado2;
+                perimetro:(2*(lado1+lado2));
+                area:lado1*lado2;
+            }
+            console.log(retangulo);
+        }
+   }
+
+   function exercicio4dot3(){
+       
+   }
+</script>
+</html>
