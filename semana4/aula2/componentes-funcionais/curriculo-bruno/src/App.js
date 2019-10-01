@@ -5,7 +5,12 @@ import { BigCards } from './componentes/BigCard/BigCard';
 function App() {
   return (
     <div className="App">
-      <BigCards />
+      <div className="pageSection">
+        <BigCards />
+        <SmallCard />
+        <SmallCard />
+        <ImageButton />
+      </div>
     </div>
   );
 }
