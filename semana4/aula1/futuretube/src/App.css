@@ -62,6 +62,10 @@ a {
   text-decoration: none;
 }
 
+a p {
+  text-align: left;
+  margin-left:5px;
+}
 section  {
   display:grid;
   grid-template-columns:repeat(4,1fr);
