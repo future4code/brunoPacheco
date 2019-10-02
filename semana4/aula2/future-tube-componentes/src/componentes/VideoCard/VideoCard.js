@@ -1,14 +1,19 @@
 import React from 'react';
 import './VideoCard.css'
+import PropTypes from 'prop-types'
 
-export function VideoCard(){
-    return (
-        <div>
-            <img src="https://picsum.photos/200/200?versao=bla1" alt="" />
-            
-            <div className="titulo_container">
-               <p>Título da Imagem</p> 
-            </div>
-        </div>
-    )
+export function VideoCard(props) {
+  return (
+    <div className="video-card-container">
+      <img src={props.imagem} alt=""/>
+      <div className="title-container">
+        <p>{props.titulo}</p>
+      </div>
+    </div>
+  )
+}
+
+VideoCard.propTypes = {
+  imagem: PropTypes.string.isRequired,
+  titulo: PropTypes.string.isRequired
 }
