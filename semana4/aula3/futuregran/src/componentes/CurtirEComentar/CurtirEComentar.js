@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 function CurtirEComentar(props) {
     return(
-        <section>
+        <section className="curtirEComentar">
             <img src={props.curtir} alt="" />
             <img src={props.comentar} alt="" />
         </section>
