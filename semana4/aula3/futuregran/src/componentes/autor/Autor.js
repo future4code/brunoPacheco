@@ -1,13 +1,13 @@
-import React from './node_modules/react'
+import React from 'react'
 import "./Autor.css"
-import PropTypes from './node_modules/prop-types'
+import PropTypes from 'prop-types'
 
 function Autor(props) {
     return (
-        <div>
+        <section className="autorContainer">
             <img id="imgAutor" src={props.imagem} alt="" />
             <h3> {props.titulo}</h3>
-        </div>
+        </section>
     )
 }
 
