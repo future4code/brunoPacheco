@@ -1,0 +1,12 @@
+.foto {
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+}
+
+img {
+    margin-bottom:60px;
+    height:200px;
+    width:250px;
+}
