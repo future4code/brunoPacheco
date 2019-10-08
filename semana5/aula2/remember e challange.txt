@@ -1,0 +1,19 @@
+Remember: Responda com Verdadeiro ou Falso para cada afirmação abaixo:
+(V) O Programador é responsável por invocar os métodos de ciclo de vida no React.
+(V) Todos os métodos do ciclo de vida são executados a cada nova renderização.
+(V) O construtor é o primeiro método a ser executado.
+(F) O método de ciclo de vida ComponentDidUpdate não é chamado na primeira renderização
+(V) Após ser renderizado condicionalmente, um componente tem seu ciclo de vida reiniciado.
+
+Challange:
+
+O primeiro valor impresso é a fruta.
+Para evitar esse erro de execução, é necessário usar imprimeOTipo({tipo:null}).
+Para mostrar essa condição de usuário logado ou não, eu usaria da seguinte forma
+ if (estaLogado !== true){
+	ComponentWillUpdate(alert)
+	alert="Faça o seu login!"
+}else{
+	ComponentDidMount(alert)
+	alert="Seja Bem vindo!"
+}
