@@ -1,0 +1,22 @@
+1. Analise as afirmações. Assinale V (para as verdadeiras) ou F (para as falsas):
+a.V Não há motivos para se utilizar o estado em sites sem interatividade.
+b.F Recomenda-se fortemente que os componentes tenham mais de uma responsabilidade, para diminuir a quantidade deles.
+c.F É recomendável que se guardem informações que não mudem no estado
+d.V props e state são duas formas de se guardarem dados a serem exibidos. O state é  gerenciado pelo próprio componente, enquanto props são passadas a ele.
+
+
+2. Explique, com suas palavras, os 5 grandes passos para começar a ‘se pensar em React’.
+
+O primeiro passo é fazer um mock, ou seja, um esboço de como será o projeto após concluído;
+O segundo passo é separar em componentes de modo que fique fácil visualizar quem é pai e quem é filho;
+O terceiro passo é criar uma versão estática do projeto, sem estado pois a idéia é organizar o codigo de modo que após a conclusão do passo, o mesmo ganhe vida.
+O quarto passo é realizar a representação mínima, fazer com que os estados mutáveis sejam os mais claros possíveis. Isso evita um looping enorme para se chegar a um objetivo enquanto que na realidade era apenas necessário trÊs passos ou menos;
+O quinto passo é deixar o state no componente pai de todos, no mais alto da hierarquia, assim fica fácil de identificar o state e usar esses dados;
+O sexto passo é onde tudo ganha vida, é por aqui que o projeto fica interativo e visualmente funcionando. As mudanças ds states ocorrem a partir das mudanças dos inputs.
+
+
+Challenge
+
+1-A api é uma ferramenta de integração entre sistemas distintos. Um exemplo real de api's é quando fazemos o cadastro em algum site ou app e tem a disponibilidade de cadastrar um email e senha ou entrar utilizando o facebook. Essa facilidade de usar o facebook é na verdade uma api desenvolvida para um cadastro de usuário.
+2-O Http a grosso modo é um site sem segurança para o usuário enquanto o https tem sua transmissão de dados criptografados e uma certificação de segurança,sendo assim é mais segura comparada a http.
+3- Um sitee simples com fotos de gatinhos em várias situações.
