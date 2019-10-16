@@ -3,16 +3,18 @@ import React from 'react';
 export class Entradas extends React.Component {
     constructor(props){
         super(props)
-        this.state ={}
+        this.state ={
+            
+        }
     }
     
     render(){
         return(
             <div>
                 <label>Nome:</label>
-                <input />
+                <input type="text" />
                 <label>e-Mail:</label>
-                <input />
+                <input type="email"/>
             </div>
         );
     }

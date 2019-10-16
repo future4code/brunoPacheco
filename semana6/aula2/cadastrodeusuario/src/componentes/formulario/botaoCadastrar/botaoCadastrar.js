@@ -1,20 +1,21 @@
 import React from 'react';
 import Entradas from '../entradas/entradas'
 
-export class Cadastrar extends React.Component {
+export class BotaoCadastrar extends React.Component {
     constructor(props){
         super(props)
-        this.state ={}
+        this.state ={
+        }
     }
     
     render(){
         return(
             <div>
                 <Entradas/>
-                <button>Cadastrar</button>
+                <button onClick>Cadastrar</button>
             </div>
         );
     }
 }
 
-export default Cadastrar;
+export default BotaoCadastrar;

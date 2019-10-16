@@ -9,7 +9,7 @@ export class Titulo extends React.Component {
     render(){
         return(
             <div>
-                <p>Título</p>
+                <h1>Cadastro de Usuários</h1>
             </div>
         );
     }
