@@ -1,12 +1,11 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components'
-
 const Squad = styled.div`
 
 `
 
-class PokeAPI extends React.Component{
+class Segundo extends React.Component{
     constructor(props){
         super(props)
         this.state={
@@ -32,22 +31,6 @@ class PokeAPI extends React.Component{
         this.fetchAllPokemonKanto();
     }
 
-    //primeiro pokemon
-    handlePokemonSelection = (event) => {
-        const selectedValue = event.target.value;
-        this.setState({firstSelectedPokemon: selectedValue});
-    }
-
-    fetchSelectedPokemonPhoto = async () =>{
-       const response = await axios.get(this.state.firstSelectedPokemon)
-        this.setState({firstSelectedPokemonPhoto : response.data.sprites.front_default})
-    }
-    componentDidUpdate(prevProps,prevState){
-        if(prevState.firstSelectedPokemon !== this.state.firstSelectedPokemon){
-            this.fetchSelectedPokemonPhoto();
-        }
-    }
-
     //segundo pokemon
     handleSecondPokemonSelection = (event) => {
         const selectedValue = event.target.value;
@@ -68,24 +51,6 @@ class PokeAPI extends React.Component{
     render(){
         return(
             <div>
-                <h1>Escolha o seu time :</h1>
-                <h2></h2>
-                <h2>{/*this.state.kantoList.length*/}</h2>
-                <select 
-                    onChange={this.handlePokemonSelection}
-                    value={this.state.firstSelectedPokemon}
-                >
-                    <option>Escolha o 1º Pokémon</option>
-                    {this.state.kantoList.map((pokemon) => {
-                        return(
-                            <option 
-                                key={pokemon.nome}
-                                value={pokemon.url}
-                            >
-                            {pokemon.name}</option>
-                        )
-                    })}
-                </select>
                 <select 
                     onChange={this.handleSecondPokemonSelection}
                     value={this.state.secondSelectedPokemon}
@@ -102,7 +67,6 @@ class PokeAPI extends React.Component{
                     })}
                 </select>
                 <Squad>
-                    {this.state.firstSelectedPokemonPhoto && (<img src={this.state.firstSelectedPokemonPhoto} />)}
                     {this.state.secondSelectedPokemonPhoto && (<img src={this.state.secondSelectedPokemonPhoto} />)}
                 </Squad>
                 
@@ -111,4 +75,4 @@ class PokeAPI extends React.Component{
     }
 }
 
-export default PokeAPI;
+export default Segundo;
