@@ -12,27 +12,37 @@ class Playlist extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            playlist:[
-                {
-                    rock:[],
-                    samba:[],
-                }
-            ]
+            playlist:""
         }
     }
 
+    componentDidMount() {
+        axios
+            .get("https://us-central1-spotif4.cloudfunctions.net/api/playlists/getAllPlaylists",
+                {
+                    headers:{
+                        auth: "32382399c21f8450ed2efe9b44135bb5"
+                    }
+                }
+            ).then((response) => {
+                this.setState({
+                    playlist:response.data.result
+                })
+            })
+    }
+    
     render(){
-        const listaDePlaylist = this.state.playlist.map((item)=>{
-            return <li>{ item }</li>
-        })
         return(
             <Container>
-                <h2>Playlist</h2>
-                <ul>
-                    { listaDePlaylist }
-                </ul>
+                {
+                    this.state.playlist.map((name,i)=>{
+                        return(
+                            <p>{this.playlist.name}</p>
+                        );
+                    })   
+                }
             </Container>
-        );
+        );   
     }
 }
 
