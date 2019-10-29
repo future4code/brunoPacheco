@@ -1,47 +1,41 @@
-function taskToDo(task) {
+function taskToDo(id,titleTask,descriptionTask) {
 	return{
 		type: "TASK_TO_DO",
+		payload:{
+			id: id,
+			titleTask: titleTask,
+			descriptionTask: descriptionTask,
+			completed: false
+		}
 	}
 }
 
-function taskList(list) {
+function MarkAllCompletedTasks(){
 	return{
-		type: "TASK_LIST",
+		type: "MARK_ALL_COMPLETED_TASKS",
 	}
 }
 
-function taskListDelete(delete) {
+function RemoveCompletedTaskList(id){
 	return{
-		type: "TASK_LIST_DELETE",
+		type: "REMOVE_COMPLETED_TASK_LIST",
 	}
 }
 
-function taskListComplete(complete) {
+function MarkTaskCompleted(id){
 	return{
-		type: "TASK_LIST_COMPLETE",
+		type: "MARK_TASK_COMPLETED",
+		payload:{
+			id:id,
+		}
 	}
 }
 
-function taskListPending(pending) {
+function RemoveTask(id){
 	return{
-		type: "TASK_LIST_PENDING",
-	}
-}
-
-function taskListMarkComplete(markComplete) {
-	return{
-		type: "TASK_LIST_MARK_COMPLETE",
-	}
-}
-
-function taskListRemoveComplete(removeComplete) {
-	return{
-		type: "TASK_LIST_REMOVE_COMPLETE",
-	}
-}
-
-function allTaskList(all) {
-	return{
-		type: "ALL_TASK_LIST",
+		type: "REMOVE_TASK",
+		payload:{
+			id: id,
+		}
 	}
 }
