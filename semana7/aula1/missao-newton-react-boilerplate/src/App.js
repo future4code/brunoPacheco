@@ -5,6 +5,10 @@ import { MuiThemeProvider, createGenerateClassName, jssPreset } from '@material-
 import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import  AppContainer  from './components/AppContainer.js'
+import { createStore, applyMiddleware } from 'redux';
+import {rootReducer } from 'src/reducers';
+import thunk from 'redux-thunk';
+import { Provider }  from 'react-redux';
 
 const generateClassName = createGenerateClassName()
 const jss = create({
@@ -15,12 +19,16 @@ const jss = create({
 
 const theme = createMuiTheme()
 
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 function App() {
 	return (
 		<JssProvider jss={jss} generateClassName={generateClassName}>
 			<MuiThemeProvider theme={theme}>
 				<CssBaseline />
-				<AppContainer />
+				<Provider store={store}>
+					<AppContainer />
+				</Provider>
 			</MuiThemeProvider>
 		</JssProvider>
 	)
