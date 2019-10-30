@@ -14,7 +14,7 @@ const StyledListItemText = styled(ListItemText)`
 	font-weight: bold;
 `
 
-class TaskList extends React.Component {
+class Task extends React.Component {
 
 	render() {
 		return (
@@ -36,4 +36,4 @@ class TaskList extends React.Component {
 	}
 }
 
-export default TaskList;
+export default Task;

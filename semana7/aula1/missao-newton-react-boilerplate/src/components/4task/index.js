@@ -1,7 +1,8 @@
 import React from 'react';
 import Title from './title/';
-import TaskList from './taskList/'
+import Task from './taskList/'
 import InputTask from './toDoTask/index.js';
+import Buttons from './button/';
 import styled from 'styled-components';
 
 const StyledContainer = styled.div`
@@ -18,7 +19,8 @@ class ForTask extends React.Component {
 			<StyledContainer>
 				<Title />
 				<InputTask />
-				<TaskList />
+				<Task />
+				<Buttons />
 			</StyledContainer>
 		);
 	}
