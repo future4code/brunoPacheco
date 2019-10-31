@@ -11,8 +11,9 @@ const initialState = [
 		description: "Essa tarefa tem como objetivo ser mostrada na lista de tarefas",
 		completed: true
 	}
-]
+];
 
 export const tasksReducer = (state = initialState, action) => {
+	console.log(action)
 	return state
-}
+};
