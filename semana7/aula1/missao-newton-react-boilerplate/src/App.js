@@ -6,7 +6,7 @@ import { createMuiTheme } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
 import  AppContainer  from './components/AppContainer.js'
 import { createStore, applyMiddleware } from 'redux';
-import {rootReducer } from 'src/reducers';
+import rootReducer  from './reducers/';
 import thunk from 'redux-thunk';
 import { Provider }  from 'react-redux';
 

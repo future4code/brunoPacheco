@@ -19,10 +19,10 @@ class Task extends React.Component {
 			<List>
 				<ListItem dense button>
 					<IconButton edge="end" aria-label="comments">
-						<AssignmentTurnedInIcon />	
+						<AssignmentTurnedInIcon />
 					</IconButton>
 					<StyledListItemText>{this.props.task.title}</StyledListItemText>
-					<ListItemText>{this.props.task.text}</ListItemText>
+					<ListItemText>{this.props.task.description}</ListItemText>
 					<ListItemSecondaryAction>
 						<IconButton edge="end" aria-label="comments">
 							<DeleteIcon />
