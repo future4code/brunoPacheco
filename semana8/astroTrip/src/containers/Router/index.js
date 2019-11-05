@@ -14,19 +14,19 @@ export const routes = {
   createTripPage: "/trips/create", //Para criar uma nova viagem
   listTripsPage: "/trips/list", //Para listar todas as viagens
   tripdetailspage: "/tripdetailspage", //Para vermos os candidatos de uma viagem
-  homePage: "/", //Para o usuário decidir entre dois botões
+  home: "/", //Para o usuário decidir entre dois botões
 };
 
 function Router(props) {
   return (
     <ConnectedRouter history={props.history}>
       <Switch>
-        <Route path={routes.homePage} component={HomePage} />
         <Route path={routes.applicationForm} component={ApplicationForm} />
         <Route path={routes.loginPage} component={LoginPage} />
         <Route path={routes.createTripPage} component={CreateTripPage} />
         <Route path={routes.listTripsPage} component={ListTripsPage} />
         <Route path={routes.tripDetailsPage} component={TripDetailsPage} />
+        <Route path={routes.home} component={HomePage} />
       </Switch>
     </ConnectedRouter>
   );
