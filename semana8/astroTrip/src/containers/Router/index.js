@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import LoginPage from "../loginPage";
 import HomePage from "../homePage/";
 import ListTripsPage from "../listTripsPage";
-import TripDetailsPage from "../TripDetailsPage/";
+import TripDetailsPage from "../tripDetailsPage/";
 import ApplicationForm from "../applicationForm/";
 import CreateTripPage from "../createTripPage/";
 

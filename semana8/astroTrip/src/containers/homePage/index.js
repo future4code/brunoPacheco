@@ -14,8 +14,8 @@ const HomePage = props => {
 
 function mapDispatchToProps(dispatch) {
     return {
-        goToApplicationForm: () => dispatch(push("/application-form")),
-        goToLoginPage: () => dispatch(push("/login"))
+        goToApplicationForm: () => dispatch(push('/application-form')),
+        goToLoginPage: () => dispatch(push('/login'))
     };
 }
 
