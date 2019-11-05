@@ -1,15 +1,22 @@
 import React from 'react';
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
 
-class HomePage extends React.Component {
-    render(){
+const HomePage = props => {
         return (
             <div>
                 <h2>home page</h2>
-                <button>application page</button>
-                <button>login page</button>
+                <button onClick={props.goToApplicationForm}>application form</button>
+                <button onClick={props.goToLoginPage}>login page</button>
             </div>
         );
-    }
 }
 
-export default HomePage;
+function mapDispatchToProps(dispatch) {
+    return {
+        goToApplicationForm: () => dispatch(push("/application-form")),
+        goToLoginPage: () => dispatch(push("/login"))
+    };
+}
+
+export default connect (null,mapDispatchToProps)(HomePage);
