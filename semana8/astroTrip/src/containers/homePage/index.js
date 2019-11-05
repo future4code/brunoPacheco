@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
-import routes from "../Router/";
+import { routes } from "../Router/";
 
-const HomePage = props => {
+function HomePage (props){
         return (
             <div>
                 <h2>HomePage</h2>
@@ -13,11 +13,9 @@ const HomePage = props => {
         );
 }
 
-function mapDispatchToProps(dispatch) {
-    return {
+const mapDispatchToProps = (dispatch) => ({
         goToApplicationForm: () => dispatch(push(routes.applicationForm)),
         goToLoginPage: () => dispatch(push(routes.loginPage))
-    };
-}
+})
 
 export default connect (null, mapDispatchToProps)(HomePage);

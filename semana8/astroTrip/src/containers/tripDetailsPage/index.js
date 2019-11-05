@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from "react-redux";
-import { goBack} from "connected-react-router";
-import routes from "../Router/";
+import { push} from "connected-react-router";
+import { routes } from "../Router/";
 
 class TripDetailsPage extends React.Component {
     render(){
         return (
             <div>
                 <h2>TripDetailsPage</h2>
-            <button onClick={props.goBack}>Voltar</button>
+            <button onClick={this.props.goToHomePage}>Voltar para home </button>
             </div>
         )
     }
@@ -16,7 +16,7 @@ class TripDetailsPage extends React.Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        goBack: () => dispatch(goBack())
+        goToHomePage: () => dispatch(push(routes.home))
     }
 }
 

@@ -4,9 +4,9 @@ import { push, goBack } from "connected-react-router";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
-import routes from "../Router/";
+import { routes } from "../Router/";
 
-const LoginWrapper = styled.form`
+const LoginWrapper = styled.div`
   width: 100%;
   height: 100vh;
   gap: 10px;
@@ -50,17 +50,15 @@ class LoginPage extends Component {
           value={password}
         />
         <Button onClick={this.props.goToListTripsPage}>Login</Button>
-        <Button onCLick={this.props.goBack}>Voltar</Button>
+        <button onClick={this.props.goToHomePage}>Voltar</button>
       </LoginWrapper>
     );
   }
 }
 
-function mapDispatchToProps(dispatch) {
-  return {
+const mapDispatchToProps = (dispatch) => ({
     goToListTripsPage: () => dispatch(push(routes.listTripsPage)),
-    goBack: () => dispatch(goBack())
-  }
-}
+    goToHomePage: () => dispatch(push(routes.home))
+})
 
-export default connect(null,mapDispatchToProps)(LoginPage);
+export default connect(null, mapDispatchToProps)(LoginPage);
