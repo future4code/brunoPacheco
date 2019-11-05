@@ -3,10 +3,12 @@ import React from 'react';
 class HomePage extends React.Component {
     render(){
         return (
-            <div>home page</div>
-            <button>list trip page</button>
-            <button>login page</button>
-        )
+            <div>
+                <h2>home page</h2>
+                <button>application page</button>
+                <button>login page</button>
+            </div>
+        );
     }
 }
 

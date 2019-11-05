@@ -1,16 +1,20 @@
 import React from "react";
 import { ConnectedRouter } from "connected-react-router";
 import { Switch, Route } from "react-router-dom";
-import LoginPage from "../loginPage/";
+import LoginPage from "../loginPage";
 import HomePage from "../homePage/";
-import ListtripsPage from "../listTripsPage/";
+import ListTripsPage from "../listTripsPage";
 import TripDetailsPage from "../TripDetailsPage/";
+import ApplicationForm from "../applicationForm/";
+import CreateTripPage from "../createTripPage/";
 
 const routes = {
-  root: "/",
-  homePage: "/homepage",
-  listTripsPage: "/listtrippage",
-  tripdetailspage: "/tripdetailspage"
+  homePage: "/", //Para o usuário decidir entre dois botões
+  applicationForm: "/application-form", //Para qualquer usuário poder se increver
+  loginPage: "/login", //Para o usuário fazer o login
+  createTripPage: "/trips/create", //Para criar uma nova viagem
+  listTripsPage: "/trips/list", //Para listar todas as viagens
+  tripdetailspage: "/tripdetailspage" //Para vermos os candidatos de uma viagem
 };
 
 function Router(props) {
@@ -18,9 +22,11 @@ function Router(props) {
     <ConnectedRouter history={props.history}>
       <Switch>
         <Route path={routes.homePage} component={HomePage} />
-        <Route path={routes.listTripsPage} component={ListTripPagePage} />
-        <Route path={routes.tripdetailspage} component={TripDetailsPage} />
-        <Route path={routes.root} component={LoginPage} />
+        <Route path={routes.applicationForm} component={ApplicationForm} />
+        <Route path={routes.loginPage} component={LoginPage} />
+        <Route path={routes.createTripPage} component={CreateTripPage} />
+        <Route path={routes.listTripsPage} component={ListTripsPage} />
+        <Route path={routes.tripDetailsPage} component={TripDetailsPage} />
       </Switch>
     </ConnectedRouter>
   );

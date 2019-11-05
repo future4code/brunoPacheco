@@ -1,9 +1,9 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from "./node_modules/react";
+import { connect } from "./node_modules/react-redux";
 import { push } from "connected-react-router";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import styled from "styled-components";
+import TextField from "./node_modules/@material-ui/core/TextField";
+import Button from "./node_modules/@material-ui/core/Button";
+import styled from "./node_modules/styled-components";
 
 const LoginWrapper = styled.form`
   width: 100%;
