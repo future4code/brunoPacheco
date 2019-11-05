@@ -5,6 +5,7 @@ class ApplicationForm extends React.Component {
         return (
             <div>
                 <h2>Application Form</h2>
+                <button>Voltar</button>
             </div>
         );
     }

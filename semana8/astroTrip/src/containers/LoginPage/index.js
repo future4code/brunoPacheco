@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { push } from "connected-react-router";
+import { push, goBack } from "connected-react-router";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
+import routes from "../Router/";
 
 const LoginWrapper = styled.form`
   width: 100%;
@@ -49,6 +50,7 @@ class LoginPage extends Component {
           value={password}
         />
         <Button onClick={this.props.goToListTripsPage}>Login</Button>
+        <Button onCLick={this.props.goBack}>Voltar</Button>
       </LoginWrapper>
     );
   }
@@ -56,7 +58,8 @@ class LoginPage extends Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-    goToListTripsPage: () => dispatch(push("/trips/list"))
+    goToListTripsPage: () => dispatch(push(routes.listTripsPage)),
+    goBack: () => dispatch(goBack())
   }
 }
 

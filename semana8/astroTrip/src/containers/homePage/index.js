@@ -1,11 +1,12 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
+import routes from "../Router/";
 
 const HomePage = props => {
         return (
             <div>
-                <h2>home page</h2>
+                <h2>HomePage</h2>
                 <button onClick={props.goToApplicationForm}>application form</button>
                 <button onClick={props.goToLoginPage}>login page</button>
             </div>
@@ -14,8 +15,8 @@ const HomePage = props => {
 
 function mapDispatchToProps(dispatch) {
     return {
-        goToApplicationForm: () => dispatch(push('/application-form')),
-        goToLoginPage: () => dispatch(push('/login'))
+        goToApplicationForm: () => dispatch(push(routes.applicationForm)),
+        goToLoginPage: () => dispatch(push(routes.loginPage))
     };
 }
 
