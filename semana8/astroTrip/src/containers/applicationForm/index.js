@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { goBack} from "connected-react-router";
+import optionCountry from "./country.js";
 
 const inputForm= [
     {
@@ -8,7 +9,7 @@ const inputForm= [
         type:"text",
         label:"Nome",
         required: true,
-        pattern:"[a-zA-Z0-9]+"
+        pattern:"^[a-zA-Z][a-zA-Z-_\.]{3,}$" //letras maiúsculas e minúsculas de A a Z com no mínimo 3 caracteres
     },
     {
         name:"age",
@@ -23,16 +24,16 @@ const inputForm= [
         type:"text",
         label:"Por que sou um bom candidato(a)",
         required: true,
-        pattern:"[a-zA-Z0-9]+"
+        pattern:"^[a-zA-Z][a-zA-Z-_\.]{30,}$"
     },
     {
         name:"profession",
         type:"text",
         label:"Profissão",
         required: true,
-        pattern:"[a-zA-Z0-9]+"
+        pattern:"^[a-zA-Z][a-zA-Z-_\.]{10,}$"
     },
-    {
+    /*{
         name:"country",
         type:"text",
         label:"Qual o seu país",
@@ -43,9 +44,9 @@ const inputForm= [
         type:"text",
         label:"Candidatar-se a",
         required: true,
-    },
-
+    },*/
 ]
+
 class ApplicationForm extends React.Component {
     constructor(props){
         super(props)
@@ -84,6 +85,14 @@ class ApplicationForm extends React.Component {
                         />
                     </div>
                 ))}
+                <label>Escolha o seu País:</label>
+                <select name="optionCountry" id="optionCountry">
+                    {optionCountry}
+                </select>
+                <label>Escolha a viagem: </label>
+                <select name="tripChoise" id="tripChoise">
+                    <option>Em desenvolvimento</option>
+                </select>
                 <button type="submit">Enviar</button>  
                 </form>
                 <button onClick={this.props.goBack}>Voltar</button>
