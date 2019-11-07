@@ -5,6 +5,7 @@ import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import styled from "styled-components";
 import { routes } from "../Router/";
+import login from "../../actions/auth.js";
 
 const LoginWrapper = styled.div`
   width: 100%;
@@ -30,6 +31,11 @@ class LoginPage extends Component {
     });
   };
 
+  onClickLogin = () => {
+    const {email, password} = this.state;
+    this.props.goToLogin(email, password);
+  } 
+
   render() {
     const { email, password } = this.state;
 
@@ -49,7 +55,7 @@ class LoginPage extends Component {
           label="Password"
           value={password}
         />
-        <Button onClick={this.props.goToListTripsPage}>Login</Button>
+        <Button onClick={this.onClickLogin}>Login</Button>
         <button onClick={this.props.goToHomePage}>Voltar</button>
       </LoginWrapper>
     );
@@ -57,8 +63,10 @@ class LoginPage extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-    goToListTripsPage: () => dispatch(push(routes.listTripsPage)),
-    goToHomePage: () => dispatch(push(routes.home))
-})
+    //usei a linha abaixo para fazer um teste de troca de página
+    //goToListTripsPage: () => dispatch(push(routes.listTripsPage)), 
+    goToHomePage: () => dispatch(push(routes.home)),
+    goToLogin: (email, password) => dispatch(login(email, password))
+  })
 
 export default connect(null, mapDispatchToProps)(LoginPage);

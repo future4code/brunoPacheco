@@ -4,6 +4,16 @@ import { push } from "connected-react-router";
 import { routes } from "../Router/";
 
 class ListTripsPage extends React.Component {
+    
+    componentDidMount() {
+        //buscando token no LocalStorage. Se não existir, retorna null
+        const token = window.localStorage.getItem('token');
+        //se o token não existe, 
+        if (token ===null) {
+            this.props.goToLogin();
+        }
+    }
+
     render(){
         return (
             <div>
@@ -20,7 +30,8 @@ function mapDispatchToProps(dispatch) {
     return {
         goToHomePage: () => dispatch(push(routes.home)),
         goToCreateTripPage: () => dispatch(push(routes.createTripPage)),
-        goTripDetailsPage: () => dispatch(push(routes.tripDetailsPage))
+        goTripDetailsPage: () => dispatch(push(routes.tripDetailsPage)),
+        goToLogin: () => dispatch(push(routes.loginPage))
     }
 }
 
