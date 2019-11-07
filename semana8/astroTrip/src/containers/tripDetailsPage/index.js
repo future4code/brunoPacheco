@@ -8,15 +8,15 @@ class TripDetailsPage extends React.Component {
         return (
             <div>
                 <h2>TripDetailsPage</h2>
-            <button onClick={this.props.goToHomePage}>Voltar para home </button>
+            <button onClick={this.props.goToListTripsPage}>Voltar</button>
             </div>
         )
     }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) => {
     return {
-        goToHomePage: () => dispatch(push(routes.home))
+        goToListTripsPage: () => dispatch(push(routes.listTripsPage)),
     }
 }
 

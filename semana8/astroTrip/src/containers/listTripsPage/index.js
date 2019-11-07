@@ -8,8 +8,9 @@ class ListTripsPage extends React.Component {
     componentDidMount() {
         //buscando token no LocalStorage. Se não existir, retorna null
         const token = window.localStorage.getItem('token');
-        //se o token não existe, 
-        if (token ===null) {
+        //se o token for igual a null, volta pra página de login  
+        console.log(token)
+        if (!token) {
             this.props.goToLogin();
         }
     }
@@ -26,12 +27,13 @@ class ListTripsPage extends React.Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+const mapDispatchToProps = (dispatch) =>{
     return {
+        goToLogin: () => dispatch(push(routes.loginPage)),
         goToHomePage: () => dispatch(push(routes.home)),
         goToCreateTripPage: () => dispatch(push(routes.createTripPage)),
         goTripDetailsPage: () => dispatch(push(routes.tripDetailsPage)),
-        goToLogin: () => dispatch(push(routes.loginPage))
+        
     }
 }
 
