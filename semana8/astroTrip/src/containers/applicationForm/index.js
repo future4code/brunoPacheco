@@ -33,7 +33,9 @@ const inputForm= [
         required: true,
         pattern:"^[a-zA-Z][a-zA-Z-_\.]{10,}$"
     },
-    /*{
+    /* Esse objeto contém props que funcionariam se o usuário fosse digitar algo no input, 
+       mas como esse objeto deve ter um dropdown, deixei comentado para não haver confusão.
+    {
         name:"country",
         type:"text",
         label:"Qual o seu país",
@@ -44,7 +46,8 @@ const inputForm= [
         type:"text",
         label:"Candidatar-se a",
         required: true,
-    },*/
+    },
+    */
 ]
 
 class ApplicationForm extends React.Component {
@@ -85,12 +88,23 @@ class ApplicationForm extends React.Component {
                         />
                     </div>
                 ))}
-                <label>Escolha o seu País:</label>
-                <select name="optionCountry" id="optionCountry">
+                <label htmlFor="country">Escolha o seu País:</label>
+                    {/* para inserir uma prop nova no form, utilizei os colchetes com o nome da prop dentro entre aspas*/}
+                <select 
+                    name="optionCountry"
+                    id="optionCountry" 
+                    value={this.state.form["country"]}
+                    onChange={this.handleInputChange}
+                > 
                     {optionCountry}
                 </select>
-                <label>Escolha a viagem: </label>
-                <select name="tripChoise" id="tripChoise">
+                <label htmlFor="tripChoise">Escolha a viagem: </label>
+                <select 
+                    name="tripChoise" 
+                    id="tripChoise"
+                    value={this.state.form["tripChoise"]}
+                    onCHange={this.handleInputChange}
+                >
                     <option>Em desenvolvimento</option>
                 </select>
                 <button type="submit">Enviar</button>  

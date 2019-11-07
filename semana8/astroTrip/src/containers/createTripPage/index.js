@@ -11,13 +11,17 @@ const tripForm = [
         required: true,
         pattern:"^[a-zA-Z][a-zA-Z-_\.]{5,}$"
     },
-    /*{
+    /* Esse objeto contém props que funcionariam se o usuário fosse digitar algo no input, 
+       mas como esse objeto deve ter um dropdown, deixei comentado para não haver confusão.
+    {
         name:"planet",
         type:"text",
         label:"Traçar Destino para",
         required: true,
         pattern:""
-    }*/,
+    }
+    */,
+    //A data está com o formato correto mas ainda não está configurado para ser somente em data futura 
     {
         name:"date",
         type:"date",
@@ -83,8 +87,13 @@ class CreateTripPage extends React.Component {
                         />
                         </div>
                     ))}
-                    <label>Escolha o planeta de destino: </label>
-                    <select name="optionCountry" id="optionCountry">
+                    <label htmlFor="optionPlanet">Escolha o planeta de destino: </label>
+                    <select 
+                        name="optionPlanet" 
+                        id="optionPlanet"
+                        value={this.state.trip["planet"]}
+                        onCHange={this.handleInputChange}
+                    >
                         {optionPlanet}
                     </select>
                     <button type="submit">Enviar</button>
