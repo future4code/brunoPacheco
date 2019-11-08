@@ -53,6 +53,16 @@ class CreateTripPage extends React.Component {
             trip:{} //estado inicial da viagem
         }
     }
+
+    componentDidMount() {
+        //buscando token no LocalStorage. Se não existir, retorna null
+        const token = window.localStorage.getItem('token');
+        //se o token for igual a null, volta pra página de login  
+        console.log(token)
+        if (!token) {
+            this.props.goToLogin();
+        }
+    }
     
     handleOnSubmit = event => {
          // Normalmente um formulário troca de página, a linha abaixo

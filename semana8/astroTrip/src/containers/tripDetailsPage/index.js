@@ -3,7 +3,19 @@ import { connect } from "react-redux";
 import { push} from "connected-react-router";
 import { routes } from "../Router/";
 
+
 class TripDetailsPage extends React.Component {
+
+    componentDidMount() {
+        //buscando token no LocalStorage. Se não existir, retorna null
+        const token = window.localStorage.getItem('token');
+        //se o token for igual a null, volta pra página de login  
+        console.log(token)
+        if (!token) {
+            this.props.goToLogin();
+        }
+    }
+    
     render(){
         return (
             <div>
