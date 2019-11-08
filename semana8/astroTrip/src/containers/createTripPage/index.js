@@ -9,7 +9,7 @@ const tripForm = [
         type:"text",
         label:"Título da Aventura",
         required: true,
-        pattern:"^[a-zA-Z][a-zA-Z-_\.]{5,}$"
+        pattern: "[a-zA-Z\\s]{5,}"
     },
     /* Esse objeto contém props que funcionariam se o usuário fosse digitar algo no input, 
        mas como esse objeto deve ter um dropdown, deixei comentado para não haver confusão.
@@ -34,7 +34,7 @@ const tripForm = [
         type:"text",
         label:"Descreva a viagem",
         required: false,
-        pattern:"[a-zA-Z]{30,}$"
+        pattern:".{30,}$"
     },
     {
         name:"durationInDays",
@@ -102,6 +102,7 @@ class CreateTripPage extends React.Component {
                         id="optionPlanet"
                         value={this.state.trip["planet"]}
                         onCHange={this.handleInputChange}
+                        required
                     >
                         {optionPlanet}
                     </select>

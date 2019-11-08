@@ -10,7 +10,7 @@ const inputForm= [
         type:"text",
         label:"Nome",
         required: true,
-        pattern:"^[a-zA-Z][a-zA-Z-_\.]{3,}$" //letras maiúsculas e minúsculas de A a Z com no mínimo 3 caracteres
+        pattern:"[a-zA-Z\\s]{3,}" //letras maiúsculas e minúsculas de A a Z com no mínimo 3 caracteres
     },
     {
         name:"age",
@@ -25,14 +25,14 @@ const inputForm= [
         type:"text",
         label:"Por que sou um bom candidato(a)",
         required: true,
-        pattern:"^[a-zA-Z][a-zA-Z-_\.]{30,}$"
+        pattern:"^.{30,}$"
     },
     {
         name:"profession",
         type:"text",
         label:"Profissão",
         required: true,
-        pattern:"^[a-zA-Z][a-zA-Z-_\.]{10,}$"
+        pattern:"^.{10,}$"
     },
     /* Esse objeto contém props que funcionariam se o usuário fosse digitar algo no input, 
        mas como esse objeto deve ter um dropdown, deixei comentado para não haver confusão.
@@ -101,6 +101,7 @@ class ApplicationForm extends React.Component {
                     id="optionCountry" 
                     value={this.state.form["country"]}
                     onChange={this.handleInputChange}
+                    required
                 > 
                     {optionCountry}
                 </select>
@@ -110,6 +111,7 @@ class ApplicationForm extends React.Component {
                     id="tripChoise"
                     value={this.state.form["tripChoise"]}
                     onCHange={this.handleInputChange}
+                    required
                 >
                     <option></option>
                     <option>em desenvolvimento</option>
