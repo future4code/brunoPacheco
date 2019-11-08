@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { goBack} from "connected-react-router";
 import optionCountry from "./country.js";
+import { fetchTrips } from '../../actions';
 
 const inputForm= [
     {
@@ -54,8 +55,13 @@ class ApplicationForm extends React.Component {
     constructor(props){
         super(props)
         this.state={
-            form:{} //estado inicial do formulário
+            form:{}, //estado inicial do formulário
+            trips:{}
         }
+    }
+
+    componentDidMount(){
+        this.props.fetchTrips()
     }
 
     handleInputChange = event => {
@@ -105,7 +111,8 @@ class ApplicationForm extends React.Component {
                     value={this.state.form["tripChoise"]}
                     onCHange={this.handleInputChange}
                 >
-                    <option>Em desenvolvimento</option>
+                    <option></option>
+                    <option>em desenvolvimento</option>
                 </select>
                 <button type="submit">Enviar</button>  
                 </form>
@@ -115,9 +122,13 @@ class ApplicationForm extends React.Component {
     }
 }
 
+
+
 function mapDispatchToProps(dispatch) {
     return {
-        goBack: () => dispatch(goBack())
+        goBack: () => dispatch(goBack()),
+        //
+        fetchTrips: () => dispatch(fetchTrips())
     }
 }
 export default connect (null, mapDispatchToProps)(ApplicationForm);
