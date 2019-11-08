@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 import { goBack} from "connected-react-router";
 import optionPlanet from "./planets";
+import { push } from "connected-react-router";
+import { routes } from "../Router/";
 
 const tripForm = [
     {
@@ -116,7 +118,8 @@ class CreateTripPage extends React.Component {
 
 function mapDispatchToProps(dispatch) {
     return {
-        goBack: () => dispatch(goBack())
+        goBack: () => dispatch(goBack()),
+        goToLogin: () => dispatch(push(routes.loginPage)),
     }
 }
 
