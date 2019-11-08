@@ -18,10 +18,12 @@ class ListTripsPage extends React.Component {
     render(){
         return (
             <div>
-                <h2>List Trip Page</h2>
+                <h1>List Trip Page</h1>
+                <li>viagem 1 <button onClick={this.props.goTripDetailsPage}>Detalhes da Viagem</button></li>
+                <li>viagem 2<button onClick={this.props.goTripDetailsPage}>Detalhes da Viagem</button></li>
+                <li>viagem 3<button onClick={this.props.goTripDetailsPage}>Detalhes da Viagem</button></li>
                 <button onClick={this.props.goToHomePage}>Voltar para Home</button>
                 <button onClick={this.props.goToCreateTripPage}>Criar nova viagem</button>
-                <button onClick={this.props.goTripDetailsPage}>Detalhes da Viagem</button>
             </div>
         );
     }
