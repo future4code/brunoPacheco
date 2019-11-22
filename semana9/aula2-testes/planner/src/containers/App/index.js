@@ -5,7 +5,8 @@ import { MuiThemeProvider, CssBaseline } from "@material-ui/core";
 import theme from "../../style/theme";
 import { createStore, applyMiddleware, compose } from "redux";
 import { rootReducer } from "../../reducers";
-import Planner from "../Planner";
+import  Planner from "../Planner";
+import "rsuite/dist/styles/rsuite-default.css";
 
 const middlewares = [
   applyMiddleware(thunk),

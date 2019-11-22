@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import PlannerInput from '../Components/PlannerInput/';
+import PlannerInput from '../Components/PlannerInput';
 import DayOfTheWeekCard from '../Components/DayOfTheWeekCard/'
 import styled from 'styled-components';
 
