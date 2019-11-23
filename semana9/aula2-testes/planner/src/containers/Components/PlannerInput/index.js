@@ -9,9 +9,10 @@ const StyledContainer = styled.div`
     flex-direction:column;
 `
 
-class PlannerInput extends React.Components {
+class PlannerInput extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
+
         this.state = {
             planner: [
                 {
@@ -23,8 +24,7 @@ class PlannerInput extends React.Components {
     }
 
     onChangePlanner = value => {
-        this.setState({ text: value });
-        this.setState({ dayOfTheWeek: value });
+        this.setState({ text: value, dayOfTheWeek: value });
     };
 
     clearForm = () => {
@@ -35,12 +35,16 @@ class PlannerInput extends React.Components {
     }
 
     handleInputChange = event => {
+        //ao invés de fazer dois setState, pode-se fazer tudo em uma linha só
         this.setState({ dayOfTheWeek: event.target.value })
     }
 
     handleOnSubmitForm = event => {
+        //evita atualizar a página
         event.preventDefault();
-        console.log(this.state.text)
+        //mandar para a API
+        this.props.onCreatePlanner({ text: this.state.text, dayOfTheWeek: this.state.dayOfTheWeek });
+        this.clearForm();
     };
 
     render() {
@@ -49,8 +53,10 @@ class PlannerInput extends React.Components {
                 <h1>Planejamento Semanal</h1>
                 <form onSubmit={this.handleOnSubmitForm} >
                     <input
-                        onChange={this.onChangeValue}
-                        value={this.state.text}
+                        //onChange para realizar a mudança do input
+                        onChange={this.onChangePlanner}
+                        //valor onde o que foi digitado irá ficar
+                        value={this.state.planner.text}
                         type="text"
                         name="text"
                         placeholder="Tarefa"
@@ -58,7 +64,7 @@ class PlannerInput extends React.Components {
                     <select
                         name="daysOfTheWeek"
                         id="daysOfTheWeek"
-                        value={this.state.dayOfTheWeek["day"]}
+                        value={this.state.planner.dayOfTheWeek}
                         onChange={this.handleInputChange}
                         required
                     >
@@ -71,5 +77,6 @@ class PlannerInput extends React.Components {
     }
 
 }
+
 
 export default connect()(PlannerInput);

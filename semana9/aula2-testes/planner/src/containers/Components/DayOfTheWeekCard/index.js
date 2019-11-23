@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import { Table } from 'rsuite';
- 
+import { segunda } from '../../../reducers/segunda'
+
 const { Column, HeaderCell, Cell } = Table;
 
 const StyledContainer = styled.div`
@@ -13,60 +14,46 @@ const StyledContainer = styled.div`
 class DayOfTheWeekCard extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            segunda:"",
-            terca:"",
-            quarta:"",
-            quinta:"",
-            sexta:"",
-            sabado:"",
-            domingo:""
-        };
     }
     render() {
         return (
             <StyledContainer>
-                <h1>Day of the week card</h1>
                 <Table
                     height={400}
-                    //data={}
-                    onRowClick={data => {
-                        console.log(data);
-                    }}
                 >
                     <Column width={200} align="center" fixed>
                         <HeaderCell>Segunda-Feira</HeaderCell>
-                        <Cell dataKey="segunda" />
+                        <Cell dataKey="segunda">{this.props.segunda}</Cell>
                     </Column>
 
                     <Column width={200} fixed>
                         <HeaderCell>Terça-feira</HeaderCell>
-                        <Cell dataKey="terca" />
+                        <Cell dataKey="terca" >{this.props.terca}</Cell>
                     </Column>
 
                     <Column width={200}>
                         <HeaderCell>Quarta-feira</HeaderCell>
-                        <Cell dataKey="quarta" />
+                        <Cell dataKey="quarta" >{this.props.quarta}</Cell>
                     </Column>
 
                     <Column width={200}>
                         <HeaderCell>Quinta-feira</HeaderCell>
-                        <Cell dataKey="quinta" />
+                        <Cell dataKey="quinta" >{this.props.quinta}</Cell>
                     </Column>
 
                     <Column width={200}>
                         <HeaderCell>Sexta-feira</HeaderCell>
-                        <Cell dataKey="sexta" />
+                        <Cell dataKey="sexta" >{this.props.sexta}</Cell>
                     </Column>
 
                     <Column width={200}>
                         <HeaderCell>Sábado</HeaderCell>
-                        <Cell dataKey="sabado" />
+                        <Cell dataKey="sabado" >{this.props.sabado}</Cell>
                     </Column>
 
                     <Column width={200}>
                         <HeaderCell>Domingo</HeaderCell>
-                        <Cell dataKey="domingo" />
+                        <Cell dataKey="domingo" >{this.props.domingo}</Cell>
                     </Column>
                 </Table>
             </StyledContainer >
@@ -74,4 +61,16 @@ class DayOfTheWeekCard extends React.Component {
     }
 }
 
-export default connect()(DayOfTheWeekCard);
+function mapStateToProps(state) {
+    return {
+        segunda: state.segunda,
+        terca: state.terca,
+        quarta: state.quarta,
+        quinta: state.quinta,
+        sexta: state.sexta,
+        sabado: state.sabado,
+        domingo: state.domingo
+    }
+}
+
+export default connect(mapStateToProps)(DayOfTheWeekCard);

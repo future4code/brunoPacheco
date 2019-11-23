@@ -1,8 +1,8 @@
 import React from 'react';
 
 const daysOfTheWeek = (
-    <React.fragment>
-        <option></option>
+    <React.Fragment>
+        <option>Selecione o dia da semana</option>
         <option value="segunda">Segunda-feira</option>
         <option value="terca">Terça-feira</option>
         <option value="quarta">Quarta-feira</option>
@@ -10,8 +10,7 @@ const daysOfTheWeek = (
         <option value="sexta">Sexta-feira</option>
         <option value="sabado">Sábado</option>
         <option value="domingo">Domingo</option>
-
-    </React.fragment>
+    </React.Fragment>
 
 )
 
