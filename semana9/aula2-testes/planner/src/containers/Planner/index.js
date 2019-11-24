@@ -5,6 +5,7 @@ import DayOfTheWeekCard from '../Components/DayOfTheWeekCard/'
 import styled from 'styled-components';
 import { addPlanner } from '../../actions'
 
+
 const StyledContainer = styled.div`
   display:flex;
   flex-direction:column;
@@ -20,6 +21,8 @@ class Planner extends React.Component {
     )
   }
 }
+
+
 
 function mapDispatchToProps(dispatch) {
   return {

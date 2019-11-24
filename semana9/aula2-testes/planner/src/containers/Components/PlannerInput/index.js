@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import daysOfTheWeek from '../Days';
+import { addPlanner } from '../../../actions'
 
 
 const StyledContainer = styled.div`
@@ -23,8 +24,8 @@ class PlannerInput extends React.Component {
         }
     }
 
-    onChangePlanner = value => {
-        this.setState({ text: value, dayOfTheWeek: value });
+    onChangePlanner = event => {
+        this.setState({ text: event.target.value, dayOfTheWeek: event.target.value });
     };
 
     clearForm = () => {
@@ -40,10 +41,9 @@ class PlannerInput extends React.Component {
     }
 
     handleOnSubmitForm = event => {
-        //evita atualizar a página
         event.preventDefault();
         //mandar para a API
-        this.props.onCreatePlanner({ text: this.state.text, dayOfTheWeek: this.state.dayOfTheWeek });
+        this.props.addPlanner({ text: this.state.text, dayOfTheWeek: this.state.dayOfTheWeek });
         this.clearForm();
     };
 
@@ -78,5 +78,10 @@ class PlannerInput extends React.Component {
 
 }
 
+function mapDispatchToProps(dispatch) {
+    return {
+        addPlanner: (text, dayOfTheWeek) => dispatch(addPlanner(text, dayOfTheWeek))
+    }
+}
 
-export default connect()(PlannerInput);
+export default connect(null, mapDispatchToProps)(PlannerInput);

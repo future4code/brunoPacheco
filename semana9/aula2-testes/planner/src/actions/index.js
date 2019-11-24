@@ -1,9 +1,9 @@
 export const addPlanner = (text, dayOfTheWeek) => {
     return {
         type: "ADD_PLANNER",
-        payload:{
+        payload: [
             text,
             dayOfTheWeek
-        }
+        ]
     }
 }

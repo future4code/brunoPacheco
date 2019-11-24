@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import styled from 'styled-components';
 import { Table } from 'rsuite';
-import { segunda } from '../../../reducers/segunda'
+
 
 const { Column, HeaderCell, Cell } = Table;
 
@@ -71,6 +71,6 @@ function mapStateToProps(state) {
         sabado: state.sabado,
         domingo: state.domingo
     }
-}
+  }
 
 export default connect(mapStateToProps)(DayOfTheWeekCard);
