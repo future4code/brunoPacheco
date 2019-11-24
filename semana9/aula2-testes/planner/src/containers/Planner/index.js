@@ -8,14 +8,15 @@ import { addPlanner } from '../../actions'
 
 const StyledContainer = styled.div`
   display:flex;
-  flex-direction:column;
+  flex-direction: column;
+  margin: 0 auto;
 `
 
 class Planner extends React.Component {
   render() {
     return (
       <StyledContainer>
-        <PlannerInput onCreatePlanner={this.props.createPlanner} />
+        <PlannerInput  />
         <DayOfTheWeekCard />
       </StyledContainer>
     )

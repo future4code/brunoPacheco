@@ -9,10 +9,4 @@ import { domingoReducer } from './domingo';
 
 export const rootReducer = combineReducers({
   segunda: segundaReducer,
-  terca: tercaReducer,
-  quarta: quartaReducer,
-  quinta: quintaReducer,
-  sexta: sextaReducer,
-  sabado: sabadoReducer,
-  domingo: domingoReducer
 });
