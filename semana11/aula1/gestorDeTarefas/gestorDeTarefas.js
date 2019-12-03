@@ -10,10 +10,8 @@ const fileName = "tarefas.txt";
 const novaTarefa = process.argv[3];
 
 try{
-    const data = fs.readFileSync(fileName);
-    const dataTraduzida = data.toString();
-    const novaLista = dataTraduzida + `\n ${novaTarefa}`;
-    fs.appendFileSync(fileName,novaTarefa, 'utf8');
+    const novaLista =`\n${novaTarefa}`;
+    fs.appendFileSync(fileName,novaLista, 'utf8');
     console.log("Tarefa adicionada com sucesso!");
 }catch(err){
     console.error(err)
