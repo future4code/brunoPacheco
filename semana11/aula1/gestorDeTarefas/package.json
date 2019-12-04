@@ -1,0 +1,19 @@
+{
+  "name": "gestordetarefas",
+  "version": "0.0.2",
+  "description": "Esse gestor de tarefas irá adicionar a sua lista de tarefas uma nova tarefa\"",
+  "main": "gestorDeTarefas.js",
+  "scripts": {
+    "start": "node gestorDeTarefas.js tarefas.txt",
+    "test": "jest"
+  },
+  "keywords": [
+    "gestor",
+    "tarefas",
+    "novaTarefa",
+    "Legal",
+    "demais"
+  ],
+  "author": "Bruno Pacheco",
+  "license": "ISC"
+}
