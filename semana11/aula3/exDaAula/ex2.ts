@@ -1,21 +1,21 @@
-import { readFile } from 'fs;'
+import { readFile } from 'fs';
 
-const fileName: string = "text.txt";
+const fileName:string = 'text.txt';
 
 const readFilePromise = new Promise((resolve, reject) => {
-    readFile(fileName, (err: ErrnoException | null, data: Buffer) => {
-        if(err){
-            reject(err)
-            console.error(err)
-            return;
-        }
-        resolve(data.toString());
-        
-    })
-})
+  readFile(fileName, (err, data:Buffer) => {
+    if(err){
+      reject(err);
+      return;
+    }
 
-readFilePromise.then((content)=> {
-    console.log("Este é o conteúdo do arquivo", content)
-}).catch((e)=> {
-    console.error("Opa,")
-})
+    const fileContent = data.toString();
+    resolve(fileContent)
+  });
+});
+
+readFilePromise.then((content) => {
+  console.log("Este é o conteúdo do arquivo", content)
+}).catch(e => {
+  console.error("Opa! Deu erro na Promise", e)
+});
