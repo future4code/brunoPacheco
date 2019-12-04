@@ -65,6 +65,8 @@ type tipo = {
     sigla: string
 }
 
+let result: string = ""
+
 function aQualAnoHistoricoPertence(ano: number, sigla: string): tipo {
     try {
         if (sigla == "") {
@@ -73,13 +75,11 @@ function aQualAnoHistoricoPertence(ano: number, sigla: string): tipo {
             }
         }
 
-        switch (ano) {
-            case (ano > 4000):
-                return;
-            default:
-                return console.log("Está fora dos parâmetros")
-        }
-    } catch(err){
+        if (ano >= 4000) {
+            result = "Pré-história"
+        } 
+        
+    } catch (err) {
         console.error(err)
     }
 }
