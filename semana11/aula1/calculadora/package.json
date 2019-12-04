@@ -1,0 +1,19 @@
+{
+  "name": "calculadora",
+  "version": "0.0.1",
+  "description": "\u001b[A\u001b[BEssa calculadora realiza as operações de soma, subtração, multiplicação e divisão.",
+  "main": "myCalculator.js",
+  "scripts": {
+    "start": "node myCalculator.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "calculadora",
+    "soma",
+    "subtracao",
+    "divisao",
+    "multiplicacao"
+  ],
+  "author": "Bruno Pacheco",
+  "license": "ISC"
+}
