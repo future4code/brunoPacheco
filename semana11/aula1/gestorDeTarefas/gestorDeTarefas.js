@@ -9,9 +9,12 @@ const fs = require('fs');
 const fileName = "tarefas.txt";
 const novaTarefa = process.argv[3];
 
-try{
-    const novaLista =`\n${novaTarefa}`;
-    fs.appendFileSync(fileName,novaLista, 'utf8');
+
+    const data = fs.readFileSync(fileName);
+    const dataTraduzida = data.toString();
+    const novaLista = dataTraduzida + `\n ${novaTarefa}`;
+    fs.appendFileSync(fileName,novaTarefa, 'utf8');
+
     console.log("Tarefa adicionada com sucesso!");
 }catch(err){
     console.error(err)
