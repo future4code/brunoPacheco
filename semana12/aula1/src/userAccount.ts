@@ -1,9 +1,8 @@
-
 export class UserAccount {
-    private balance: number
-    private cpf: string
-    private name: string
-    private age: number
+    balance: number
+    cpf: string
+    name: string
+    age: number
 
     constructor(balance: number, cpf: string, name: string, age: number){
         this.balance=balance,

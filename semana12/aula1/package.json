@@ -9,7 +9,8 @@
     "criar": "tsc && node build/createAccount.js --target es6",
     "ver": "tsc && node build/getAllAccounts.js --target es6",
     "saldo": "tsc && node build/getBalance.js --target es6",
-    "add": "tsc && node build/addBalance.js --target es6"
+    "add": "tsc && node build/addBalance.js --target es6",
+    "start": "tsc && node build/index.js --target es6"
   },
   "author": "",
   "license": "ISC",

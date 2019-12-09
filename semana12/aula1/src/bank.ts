@@ -1,21 +1,19 @@
-import { JSONFileManager } from './JSONFileManager';
 import { UserAccount } from './userAccount';
 
 export class Bank {
-    private accounts: UserAccount[]
-    private fileManager: JSONFileManager
+    accounts: UserAccount[]
 
-    constructor(accounts: UserAccount[], fileManager: JSONFileManager) {
-        this.accounts=accounts,
-        this.fileManager=fileManager
+    constructor() {
+        this.accounts = []
     }
 
-    public createAccount(age): void {
-        if(age <18){
+    createAccount(UserAccount: UserAccount): void {
+        if (UserAccount.age < 18) {
             console.log("Você deve ser maior de idade para abrir uma conta")
             return
         }
-
+        this.accounts.push(UserAccount)
+        console.log("A conta foi criada com sucesso!")
     }
 
 }
