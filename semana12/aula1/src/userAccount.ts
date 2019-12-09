@@ -1,29 +1,16 @@
-import { Transaction } from "./transaction"
-
 
 export class UserAccount {
     private balance: number
     private cpf: string
     private name: string
     private age: number
-    private transactions: Transaction[]
 
-    constructor(balance: number, cpf: string, name: string, age: number, transactions: Transaction[]) {
-        this.balance,
-        this.cpf,
-        this.name,
-        this.age,
-        this.transactions
+    constructor(balance: number, cpf: string, name: string, age: number){
+        this.balance=balance,
+        this.cpf=cpf,
+        this.name=name,
+        this.age=age
     }
-
-    public getBalance(): void {
-
-    }
-
-    public addBalance(): void {
-
-    }
-
 
 }
 
