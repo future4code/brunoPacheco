@@ -1,7 +1,7 @@
 import * as moment from "moment";
-//moment.locale("pt-br")
+moment.locale("pt-br")
 
-/*const quedaDaConstantinopla = new Date("1453-05-29")
+const quedaDaConstantinopla = new Date("1453-05-29")
 console.log(quedaDaConstantinopla.getTime())
 
 const revolucaoFrancesa = new Date("1789-07-14")
@@ -69,7 +69,7 @@ const data3= new Date(timestamp+conversãoDiaEmMili)
 
 console.log(data3)
 
-*/
+
 
 const hoursInMili = 60*60*1000
 const dayInMili= 24*60*60*1000
