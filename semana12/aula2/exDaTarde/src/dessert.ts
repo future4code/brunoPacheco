@@ -22,10 +22,10 @@ export class Dessert extends Dish {
   }
 }
 
-const brigadeiro = new Dessert(100, 20, ["leite condensado"], 100, 10);
-console.log(brigadeiro.getSlicePrice());
-console.log(brigadeiro.getProfit());
+export const brigadeiro = new Dessert(100, 20, ["leite condensado"], 100, 10);
+// console.log(brigadeiro.getSlicePrice());
+// console.log(brigadeiro.getProfit());
 
-const pudim = new Dessert(50,10,["achocolatado","ovo","leite"],1,4);
-console.log(pudim.getSlicePrice());
-console.log(pudim.getProfit());
+export const pudim = new Dessert(50,10,["achocolatado","ovo","leite"],1,4);
+// console.log(pudim.getSlicePrice());
+// console.log(pudim.getProfit());

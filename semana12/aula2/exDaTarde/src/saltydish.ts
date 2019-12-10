@@ -15,8 +15,8 @@ export class SaltyDish extends Dish {
   }
 }
 
-const feijoada = new SaltyDish(100, 20, ["feijão","linguiça","bacon"], 100);
+export const feijoada = new SaltyDish(100, 20, ["feijão","linguiça","bacon"], 100);
 console.log(feijoada.getProfit());
 
-const arroz = new SaltyDish(15,5,["arroz","óleo","cebola","alho","água"],1);
+export const arroz = new SaltyDish(15,5,["arroz","óleo","cebola","alho","água"],1);
 console.log(arroz.getProfit());
