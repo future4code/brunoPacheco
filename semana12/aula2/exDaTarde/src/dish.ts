@@ -1,5 +1,5 @@
 export abstract class Dish {
-  protected price: number;
+  public price: number;
   protected cost: number;
   protected ingredients: string[];
   protected timeToCook: number;
