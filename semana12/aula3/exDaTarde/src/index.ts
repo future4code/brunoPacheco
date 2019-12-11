@@ -37,3 +37,5 @@ console.log()
 const clientManager = new ClientManager() 
 
 clientManager.addClient(client1)
+
+console.log(`A quantidade de clientes é de ${clientManager.getClientsQuantity()}`)
