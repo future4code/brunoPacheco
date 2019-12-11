@@ -3,7 +3,7 @@ import { Place } from "./place";
 export class Residence extends Place {
   constructor(
     public name: string,
-    // Refere-se ao nome da indústria
+    // Refere-se ao nome da residencia
 
     public cpf: string,
     // Refere-se ao número de registro da empresa
