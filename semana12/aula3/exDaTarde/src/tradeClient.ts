@@ -1,6 +1,7 @@
 import { Trade } from "./trade";
+import { Client } from "./client";
 
-export class TradeClient extends Trade implements Trade {
+export class TradeClient extends Trade implements Client {
     clientName: string;
     clientNumber: number;
     consumedEnergy: number;
