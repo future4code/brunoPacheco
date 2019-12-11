@@ -1,0 +1,7 @@
+Quais são classes ou interfaces? Quais classes são filhas de outras ou implementam interfaces?
+
+Interface:
+Client
+
+Class:
+Industry, Place, Residence, Trade
