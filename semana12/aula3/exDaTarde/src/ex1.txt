@@ -1,0 +1,17 @@
+Quais são classes ou interfaces? 
+
+Interface:
+Client
+
+Class:
+Industry, Place, Residence, Trade
+
+Quais classes são filhas de outras ou implementam interfaces?
+
+Classe Pai:
+Place
+Classe filha:
+industry, Residence e Trade
+
+Implementam interfaces:
+client
