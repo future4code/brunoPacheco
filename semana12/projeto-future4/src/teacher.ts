@@ -20,5 +20,5 @@ export class Teacher implements User {
             this.birthDate = new Date(`${dia}/${mes}/${ano}`),
             this.specialty = specialty
     }
-    
+
 }
