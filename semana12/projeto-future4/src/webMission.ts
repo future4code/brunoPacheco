@@ -7,8 +7,8 @@ export class WebMission extends Mission {
     patron:string
 
     constructor(
-        startDate: moment.Moment,
-        endDate: moment.Moment,
+        startDate: string,
+        endDate:string,
         teacherList: Teacher[],
         studentList: Student[],
         patron:string){

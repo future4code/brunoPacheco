@@ -1,17 +1,21 @@
 import * as fs from 'fs'
 
-export class JSONFileManager {
-    fileName: string
+interface FileManager {
+    saveToFile(value: any): void
+    getContent(): any
+}
 
+class JSONFileManager implements FileManager {
+    fileName: string
     constructor(fileName: string) {
-        this.fileName = fileName
+        this.fileName = `${fileName}.json`
     }
 
-    saveToJSON(objectToSave: object) {
+    saveToFile(objectToSave: object) {
         fs.writeFileSync(this.fileName, JSON.stringify(objectToSave, null, 2))
     }
 
-    getJSONContent() {
+    getContent() {
         return JSON.parse(fs.readFileSync(this.fileName).toString())
     }
 }

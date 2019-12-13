@@ -7,8 +7,8 @@ export class MobileMission extends Mission {
     team:number
 
     constructor(
-        startDate: moment.Moment,
-        endDate: moment.Moment,
+        startDate: string,
+        endDate: string,
         teacherList: Teacher[],
         studentList: Student[],
         team:number){
