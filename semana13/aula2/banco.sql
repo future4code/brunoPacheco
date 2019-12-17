@@ -34,3 +34,18 @@ from correntistas
 group by pais;
 
 -- ex7 
+select primeiro_nome, ultimo_nome
+from correntistas
+where month(aniversario) = month(now());
+
+-- ex8 A média do valor da conta corrente por país. 
+select avg(conta_corrente) as "média conta corrente",lower(pais)
+from correntistas
+group by pais;
+
+-- ex9
+select count(*) total,  primeiro_nome
+from correntistas
+group by primeiro_nome
+order by total desc
+limit 3;
