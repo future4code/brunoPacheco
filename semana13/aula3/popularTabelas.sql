@@ -200,3 +200,10 @@ describe livros;
 
 alter table livros 
 drop column editora;
+
+alter table livros 
+drop column autor;
+
+alter table livros 
+add titulo varchar(100) not null;
+
