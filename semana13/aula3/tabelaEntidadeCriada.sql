@@ -59,7 +59,6 @@ livro_id int not null
 
 alter table usuarios_livros
 add foreign key (usuario_id) references usuarios(id);
-
 alter table usuarios_livros
 add foreign key (livro_id) references livros(id);
 
