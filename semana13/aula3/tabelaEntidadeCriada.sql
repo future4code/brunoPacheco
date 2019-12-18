@@ -9,6 +9,7 @@ ano int not null
 );
 
 select * from livros;
+describe livros;
 
 create table autores(
 id int not null primary key unique,
@@ -37,3 +38,29 @@ data_nascimento date not null
 );
 
 select * from usuarios;
+
+alter table livros
+add editora_id int not null;
+
+alter table livros
+add foreign key (editora_id)
+references editoras(id);
+
+alter table livros
+add autor_id int not null,
+add foreign key (autor_id)
+references autores(id);
+
+
+create table usuarios_livros(
+usuario_id int not null,
+livro_id int not null
+);
+
+alter table usuarios_livros
+add foreign key (usuario_id) references usuarios(id);
+
+alter table usuarios_livros
+add foreign key (livro_id) references livros(id);
+
+describe usuarios_livros;
