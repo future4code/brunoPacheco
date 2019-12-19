@@ -32,6 +32,6 @@ select titulo, nome, data_fundacao
 from editoras e
 join livros l
 on l.editora_id = e.id
-where data_fundacao="1989-12-31";
+where data_fundacao<="1989-12-31";
 
 
