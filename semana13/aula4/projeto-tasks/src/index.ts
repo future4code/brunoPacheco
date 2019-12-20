@@ -57,7 +57,7 @@ app.post('/createUser', (req: Request, res: Response) => {
     })
 });
 
-app.get('/getAllUserTasks', (req: Request, res: Response) => {
+app.get('/getAllUser', (req: Request, res: Response) => {
     const query = connection.raw('SELECT * FROM userTasks');
 
     query.then(result => {
@@ -83,6 +83,18 @@ app.put('/editUser/:id', (req: Request, res: Response) => {
 app.delete('/deleteUser/:id', (req: Request, res: Response) => {
     const id = req.params.id
     const query = connection.raw(`DELETE FROM userTasks WHERE id=${id} `);
+
+    query.then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.send(err)
+    })
+});
+
+app.get('/getUser/:tipo', (req: Request, res: Response) => {
+
+    let tipo = req.params.tipo
+    const query = connection.raw(`SELECT *  FROM userTasks WHERE nome = "${tipo}" OR id = "${tipo}"`);
 
     query.then(result => {
         res.send(result);
