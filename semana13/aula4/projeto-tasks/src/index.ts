@@ -71,7 +71,7 @@ app.put('/editUser/:id', (req: Request, res: Response) => {
 
     const id = req.params.id
     const nickname = req.body.nickname
-    const query = connection.raw(`UPDATE userTasks SET nickname = "${nickname}" WHERE id = ${id}`);
+    const query = connection.raw(`UPDATE userTasks SET nickname = "${nickname}" WHERE id = "${id}"`);
 
     query.then(result => {
         res.send(result);
@@ -94,13 +94,38 @@ app.delete('/deleteUser/:id', (req: Request, res: Response) => {
 app.get('/getUser/:tipo', (req: Request, res: Response) => {
 
     let tipo = req.params.tipo
-    const query = connection.raw(`SELECT *  FROM userTasks WHERE nome = "${tipo}" OR id = "${tipo}"`);
 
-    query.then(result => {
-        res.send(result);
-    }).catch(err => {
-        res.send(err)
-    })
+    //TODO esse jeito não foi muito eficiente
+    if (isNaN(Number(tipo))) {
+        const query = connection.raw(`SELECT *  FROM userTasks WHERE nome LIKE "${tipo}" `);
+        query.then(result => {
+            res.send(result);
+        }).catch(err => {
+            res.send(err)
+        })
+    } else {
+        const query = connection.raw(`SELECT *  FROM userTasks WHERE id = ${tipo}`);
+        query.then(result => {
+            res.send(result);
+        }).catch(err => {
+            res.send(err)
+        })
+    }
+    // const query = connection.raw(`SELECT *  FROM userTasks WHERE nome LIKE "${tipo}" OR id="${tipo}" `);
+    //     query.then(result => {
+    //         res.send(result);
+    //     }).catch(err => {
+    //         res.send(err)
+    //     })
+
+});
+
+app.get('/getAllUserByOrderOrAge/:orderOrAge', (req: Request, res: Response) => {
+    const orderOrAge = req.params.orderOrAge
+
+    if(orderOrAge === "order")
+
+
 });
 
 
