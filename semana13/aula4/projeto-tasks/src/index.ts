@@ -120,12 +120,66 @@ app.get('/getUser/:tipo', (req: Request, res: Response) => {
 
 });
 
-app.get('/getAllUserByOrderOrAge/:orderOrAge', (req: Request, res: Response) => {
-    const orderOrAge = req.params.orderOrAge
+// app.get('/getAllUserByOrderOrAge/:orderOrAge', (req: Request, res: Response) => {
+//     const orderOrAge = req.params.orderOrAge
 
-    if(orderOrAge === "order")
+//     if (orderOrAge === "asc" || "desc") {
+//         const query = connection.raw(`SELECT * FROM userTasks ORDER BY ${orderOrAge}`);
+//         query.then(result => {
+//             res.send(result);
+//         }).catch(err => {
+//             res.send(err)
+//         })
+//     } 
 
+// });
 
+app.post('/createTask', (req: Request, res: Response) => {
+
+    const query = connection('tasks').insert(req.body)
+
+    query.then(result => {
+        res.send(result);
+    }).catch(e => {
+        res.send(e)
+    })
+
+});
+
+app.put('/editTask/:id', (req: Request, res: Response) => {
+
+    const id = req.params.id
+    const descricao = req.body.descricao
+    const end_date = req.body.end_date
+    const query = connection.raw(`UPDATE tasks SET descricao = "${descricao}", end_date = "${end_date}" WHERE id = "${id}"`);
+
+    query.then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.send(err)
+    })
+});
+
+app.get('/getAllTasks', (req: Request, res: Response) => {
+    const query = connection.raw('SELECT * FROM tasks');
+
+    query.then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.send(err)
+    })
+});
+
+app.put('/editResponsibleForTask/:id/:id_user_responsible', (req: Request, res: Response) => {
+    const id=req.params.id
+    const idUserRes = req.params.id_user_responsible
+    const query = connection.raw(`UPDATE tasks SET id_user_responsible = "${idUserRes}" WHERE id = "${id}"`);
+
+    query.then(result => {
+        res.send(result);
+    }).catch(err => {
+        res.send(err)
+    })
 });
 
 
