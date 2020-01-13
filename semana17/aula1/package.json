@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "description": "Implementar o Food4U.Esse produto nada mais é do que uma rede social, na qual os usuários podem dividir informações relevantes sobre comidas e receitas que tenham experimentado.",
   "main": "index.js",
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "@types/bcrypt": "^3.0.0"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.6"
+  },
   "scripts": {
     "start:dev": "ts-node-dev ./src/index.ts",
     "start": "tsc && node ./build/index.js"
   },
-  "author": "",
+  "author": "xecoo",
   "license": "ISC"
 }
