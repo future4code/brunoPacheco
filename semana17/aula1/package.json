@@ -1,0 +1,14 @@
+{
+  "name": "aula1",
+  "version": "1.0.0",
+  "description": "Implementar o Food4U.Esse produto nada mais é do que uma rede social, na qual os usuários podem dividir informações relevantes sobre comidas e receitas que tenham experimentado.",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "start:dev": "ts-node-dev ./src/index.ts",
+    "start": "tsc && node ./build/index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
