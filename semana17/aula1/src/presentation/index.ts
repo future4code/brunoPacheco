@@ -5,14 +5,14 @@ const app = express()
 app.use(express.json()) // Linha mágica (middleware)
 
 app.post("createUser",(request:Request,response:Response)=>{
-    const UseCase = new CreateUserUC()
+    const createUserUseCase = new CreateUserUC()
     
-    const  input:CreateUserInput ={
+    const  createUserInput:CreateUserInput ={
         email:"",
         password:""
     }
     
-    UseCase.execute(input)
+    createUserUseCase.execute(createUserInput)
 })
 
 export default app
