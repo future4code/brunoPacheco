@@ -4,7 +4,7 @@ import { CreateUserUC, CreateUserInput } from '../business/usecases/createUser/c
 const app = express()
 app.use(express.json()) // Linha mágica (middleware)
 
-app.post("createUser",(request:Request,response:Response)=>{
+app.post("/createUser",(request:Request,response:Response)=>{
     const createUserUseCase = new CreateUserUC()
     
     const  createUserInput:CreateUserInput ={
