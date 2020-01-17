@@ -26,8 +26,7 @@ export class CreateUserUC {
         await this.userDatabase.createUser(newUser)
 
         return {
-            email: newUser.getEmail(),
-            password: newUser.getPassword()
+            email: newUser.getEmail()
         }
 
     }
@@ -39,6 +38,5 @@ export interface CreateUserInput {
 }
 
 interface CreateUserOutput {
-    email:string,
-    password:string 
+    email:string
 }

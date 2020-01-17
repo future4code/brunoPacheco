@@ -5,7 +5,7 @@ class UserModel {
     constructor(
         public email: string,
         public password: string
-    ) { }
+    ) {}
 }
 
 class UserEntityMapper {
@@ -31,6 +31,7 @@ export class UserDatabase {
                 database: 'bruno'
             }
         })
+
         this.userEntityMapper = new UserEntityMapper()
     }
 
