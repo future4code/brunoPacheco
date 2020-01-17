@@ -2,7 +2,7 @@ import { User } from "../../entities/user"
 import { UserGateway } from "../../gateway/userGateway"
 
 export class CreateUserUC {
-    private userGateway: UserGateway 
+    private userGateway: UserGateway
 
     constructor(userGateway: UserGateway) {
         this.userGateway = userGateway
