@@ -8,7 +8,7 @@ export async function createUserEndPoint(request: Request, response: Response) {
             password: request.body.password
         }
 
-        const useCase = new CreateUserUC()
+        const useCase = new CreateUserUC(createUserInput)
 
         const result = await useCase.execute(createUserInput)
 

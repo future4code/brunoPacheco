@@ -1,25 +1,9 @@
 import { User } from "../business/entities/user"
 import knex from 'knex'
 
-class UserModel {
-    constructor(
-        public email: string,
-        public password: string
-    ) {}
-}
-
-class UserEntityMapper {
-    entityToModel(entity: User): UserModel {
-        return {
-            email: entity.getEmail(),
-            password: entity.getPassword()
-        }
-    }
-}
 
 export class UserDatabase {
     private connection: knex
-    private userEntityMapper: UserEntityMapper
 
     constructor() {
         this.connection = knex({
@@ -32,14 +16,24 @@ export class UserDatabase {
             }
         })
 
-        this.userEntityMapper = new UserEntityMapper()
     }
 
-    async createUser(user: User) {
-
+    public async createUser(user: User): Promise<void> {
         await this.connection.raw(
             `INSERT INTO users(email, password)
-            VALUES (${user.getEmail()},${user.getPassword()})`
+            VALUES (${user.getEmail()},${user.getPassword()});`
         )
+    }
+
+    public async verifyEmailExist(user: User): Promise<boolean>{
+        const query = await this.connection.raw(
+            `SELECT * FROM Users WHERE email=${user.getEmail};`
+        )
+
+        const returnedUser = query[0][0];
+        if(!returnedUser){
+            return false
+        }
+        return true
     }
 }

@@ -8,7 +8,6 @@ export class CreateUserUC {
         this.userGateway = userGateway
     }
 
-
     async execute(input: CreateUserInput): Promise<CreateUserOutput> {
         this.validateInput(input)
         await this.verifyUserExists(input.email)
