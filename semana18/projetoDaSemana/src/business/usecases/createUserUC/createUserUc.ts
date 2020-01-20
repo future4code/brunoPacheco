@@ -19,10 +19,9 @@ export class CreateUserUC {
             encryptedPassword,
         );
         await this.createUserGateway.createUser(newUser);
-
-
+        
         return {
-            message: "Usuário riado com sucesso!"
+            message: "Usuário criado com sucesso!"
         }
     }
 }
