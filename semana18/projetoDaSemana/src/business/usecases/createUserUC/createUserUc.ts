@@ -9,12 +9,18 @@ export class CreateUserUC {
         private createUserGateway: CreateUserGateway,
         private idGeneratorGateway: IdGeneratorGateway,
         private encryptGateway: EncryptGateway,
-        private authentication:AuthenticationGateway
+        private authentication: AuthenticationGateway
 
     ) { }
 
-    public async execute(input: CreateUserUCInput): Promise<CreatUserUCOutput> {
-        await this.verifyInputs(input);
+    private verifyInputs(input: CreateUserUCInput) {
+        if (!(input.name || input.email || input.password)) {
+            throw new Error("É necessário preencher todos os campos ")
+        }
+    }
+
+    public async execute(input: CreateUserUCInput): Promise<string> {
+        this.verifyInputs(input);
         const encryptedPassword = await this.encryptGateway.encrypt(input.password);
         const newUser = new User(
             this.idGeneratorGateway.generateId(),
@@ -23,17 +29,12 @@ export class CreateUserUC {
             encryptedPassword,
         );
         await this.createUserGateway.createUser(newUser);
-        const newAuthentication = this.authentication.generateToken(newUser.getId())
 
-        return newAuthentication 
+        const newAuthentication = this.authentication.createToken(newUser.getId())
 
+        return newAuthentication
     }
 
-    private verifyInputs(input:CreateUserUCInput) {
-        if(!(input.name || input.email || input.password)) {
-            throw new Error ("É necessário preencher todos os campos ")
-        }
-    }
 }
 
 export interface CreateUserUCInput {
@@ -42,6 +43,6 @@ export interface CreateUserUCInput {
     password: string;
 }
 
-export interface CreatUserUCOutput {
-    authentication: AuthenticationGateway;
+export interface CreateUserUCOutput {
+    authentication: string;
 }

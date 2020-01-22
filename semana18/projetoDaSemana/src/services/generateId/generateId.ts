@@ -2,7 +2,7 @@ import { IdGeneratorGateway } from "../../business/gateways/idGenerator/idGenera
 import { v4 } from "uuid";
 
 export class GenerateID implements IdGeneratorGateway {
-    generateId() {
+    public generateId(): string {
         return v4()
     }
 }
