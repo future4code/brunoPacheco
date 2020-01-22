@@ -14,5 +14,21 @@ export class UserDatabase extends BaseDatabase implements CreateUserGateway {
         `)
     }
 
+    public async getAllUsers():Promise<User[]> {
+        const allUsers = await this.connection.raw(`
+            SELECT * FROM users ;
+        `)
+        return allUsers[0].map(this.dbModelToUser);
+    }
+
+    private dbModelToUser(dbModel:any):User{
+        return new User(
+            dbModel.id,
+            dbModel.name,
+            dbModel.email,
+            dbModel.password
+        )
+    }
+
 
 }

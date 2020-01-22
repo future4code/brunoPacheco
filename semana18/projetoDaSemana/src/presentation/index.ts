@@ -3,12 +3,13 @@ import {
     CreateUserUC,
     CreateUserUCInput, 
     CreateUserUCOutput 
-} from '../business/usecases/createUserUC/createUserUc';
+} from '../business/usecases/createUserUc';
 import { BcryptService } from '../services/cryptography/bcryptService';
 import { GenerateID } from '../services/generateId/generateId';
 import { AuthenticationService } from '../services/authentication/authenticationService';
-import { LoginUserUC } from '../business/usecases/createUserUC/loginUserUC';
+import { LoginUserUC } from '../business/usecases/loginUserUC';
 import { UserDatabase } from '../data/userDatabase';
+import { GetAllUsersUC } from '../business/usecases/getAllUsersUC';
 
 const app = express()
 app.use(express.json()) // Linha mágica (middleware)
@@ -38,6 +39,16 @@ app.post("/signup", async (request: Request, response: Response) => {
 
     } catch (error) {
         response.status(404).send(error.message);
+    }
+});
+
+app.get("/getallusers", async (request:Request, response:Response)=>{
+    try{
+        const createUserUC = new GetAllUsersUC(new UserDatabase());
+        const result = await createUserUC.execute();
+        response.status(200).send(result);
+    }catch (error) {
+        response.status(404).send(error.message)
     }
 });
 

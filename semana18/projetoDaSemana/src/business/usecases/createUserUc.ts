@@ -1,8 +1,8 @@
-import { User } from "../../entities/user/user";
-import { IdGeneratorGateway } from "../../gateways/idGenerator/idGeneratorGatewy"
-import { EncryptGateway } from "../../gateways/cryptography/encryptGateway";
-import { CreateUserGateway } from "../../gateways/User/UserGateway"
-import { AuthenticationGateway } from "../../gateways/authentication/authenticationGateway";
+import { User } from "../entities/user/user";
+import { IdGeneratorGateway } from "../gateways/idGenerator/idGeneratorGatewy"
+import { EncryptGateway } from "../gateways/cryptography/encryptGateway";
+import { CreateUserGateway } from "../gateways/User/UserGateway"
+import { AuthenticationGateway } from "../gateways/authentication/authenticationGateway";
 
 export class CreateUserUC {
     constructor(
