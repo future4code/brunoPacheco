@@ -1,5 +1,5 @@
 import { BaseDatabase } from "./base/baseDatabase";
-import { CreateUserGateway } from "../business/gateways/User/UserGateway";
+import { CreateUserGateway } from "../business/gateways/User/userGateway";
 import { User } from "../business/entities/user/user";
 
 export class UserDatabase extends BaseDatabase implements CreateUserGateway {

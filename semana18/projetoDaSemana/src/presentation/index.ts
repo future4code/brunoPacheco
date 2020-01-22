@@ -52,22 +52,22 @@ app.get("/getallusers", async (request:Request, response:Response)=>{
     }
 });
 
-// app.post('/login', async (request: Request, response: Response) => {
-//     try {
-//         const loginUC = new LoginUserUC(
+app.post('/login', async (request: Request, response: Response) => {
+    try {
+        const loginUC = new LoginUserUC(
            
-//         )
-//         const result = await loginUC.execute(
-//             request.body.email,
-//             request.body.password
-//         )
-//         response.status(200).send(result)
+        )
+        const result = await loginUC.execute(
+            request.body.email,
+            request.body.password
+        )
+        response.status(200).send(result)
 
-//     } catch (error) {
-//         response.status(404).send({
-//             ...error
-//         });
-//     }
-// });
+    } catch (error) {
+        response.status(404).send({
+            ...error
+        });
+    }
+});
 
 export default app
