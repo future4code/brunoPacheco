@@ -1,5 +1,7 @@
-import { User } from "../../entities/user/user";
+import { User } from "../../entities/user";
 
-export interface CreateUserGateway {
+export interface UserGateway {
+    getUserByEmail(email:string):Promise<User>;
     createUser(user:User):Promise<void>;
 }
+

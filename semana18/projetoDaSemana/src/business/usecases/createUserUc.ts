@@ -1,12 +1,12 @@
-import { User } from "../entities/user/user";
+import { User } from "../entities/user";
 import { IdGeneratorGateway } from "../gateways/idGenerator/idGeneratorGatewy"
 import { EncryptGateway } from "../gateways/cryptography/encryptGateway";
-import { CreateUserGateway } from "../gateways/User/userGateway"
+import { UserGateway } from "../gateways/User/userGateway"
 import { AuthenticationGateway } from "../gateways/authentication/authenticationGateway";
 
 export class CreateUserUC {
     constructor(
-        private createUserGateway: CreateUserGateway,
+        private createUserGateway: UserGateway,
         private idGeneratorGateway: IdGeneratorGateway,
         private encryptGateway: EncryptGateway,
         private authentication: AuthenticationGateway

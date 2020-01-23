@@ -1,8 +1,8 @@
 import express, { Request, Response } from 'express'
-import { 
+import {
     CreateUserUC,
-    CreateUserUCInput, 
-    CreateUserUCOutput 
+    CreateUserUCInput,
+    CreateUserUCOutput
 } from '../business/usecases/createUserUc';
 import { BcryptService } from '../services/cryptography/bcryptService';
 import { GenerateID } from '../services/generateId/generateId';
@@ -42,30 +42,37 @@ app.post("/signup", async (request: Request, response: Response) => {
     }
 });
 
-app.get("/getallusers", async (request:Request, response:Response)=>{
-    try{
+app.get("/getallusers", async (request: Request, response: Response) => {
+    try {
         const createUserUC = new GetAllUsersUC(new UserDatabase());
         const result = await createUserUC.execute();
         response.status(200).send(result);
-    }catch (error) {
+    } catch (error) {
         response.status(404).send(error.message)
     }
 });
 
 app.post('/login', async (request: Request, response: Response) => {
     try {
-        const loginUC = new LoginUserUC(
-           
+        const loginUserUC = new LoginUserUC(
+            new UserDatabase(),
+            new BcryptService(),
+            new AuthenticationService()
+
         )
-        const result = await loginUC.execute(
-            request.body.email,
-            request.body.password
-        )
+        const result = await loginUserUC.execute(
+            {
+                email: request.body.email,
+                password: request.body.password
+            }
+
+        );
+
         response.status(200).send(result)
 
     } catch (error) {
         response.status(404).send({
-            ...error
+            ...error, message:error.message
         });
     }
 });

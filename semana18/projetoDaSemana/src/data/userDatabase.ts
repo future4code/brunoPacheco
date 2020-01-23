@@ -1,8 +1,8 @@
 import { BaseDatabase } from "./base/baseDatabase";
-import { CreateUserGateway } from "../business/gateways/User/userGateway";
-import { User } from "../business/entities/user/user";
+import { UserGateway } from "../business/gateways/User/userGateway";
+import { User } from "../business/entities/user";
 
-export class UserDatabase extends BaseDatabase implements CreateUserGateway {
+export class UserDatabase extends BaseDatabase implements UserGateway {
     public async createUser(user: User): Promise<void> {
         await this.connection.raw(`
             INSERT INTO users (id,name,email,password)
@@ -28,6 +28,14 @@ export class UserDatabase extends BaseDatabase implements CreateUserGateway {
             dbModel.email,
             dbModel.password
         )
+    }
+
+    public async getUserByEmail(email:string):Promise<User> {
+        const user = await this.connection.raw(`
+            SELECT * FROM users WHERE email="${email}"
+        `)
+        return this.dbModelToUser(user[0][0])
+        
     }
 
 

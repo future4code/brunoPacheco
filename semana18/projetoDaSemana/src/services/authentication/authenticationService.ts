@@ -1,6 +1,5 @@
 import {
     AuthenticationGateway,
-    TokenData
 } from "../../business/gateways/authentication/authenticationGateway";
 import * as jwt from "jsonwebtoken";
 
