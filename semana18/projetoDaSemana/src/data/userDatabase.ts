@@ -1,6 +1,7 @@
 import { BaseDatabase } from "./base/baseDatabase";
 import { UserGateway } from "../business/gateways/User/userGateway";
 import { User } from "../business/entities/user";
+import { response } from "express";
 
 export class UserDatabase extends BaseDatabase implements UserGateway {
     public async createUser(user: User): Promise<void> {
@@ -52,19 +53,14 @@ export class UserDatabase extends BaseDatabase implements UserGateway {
             (follower_id, followed_id)
             VALUES ("${followerId}","${followedId}");
         `)
-        
-        return undefined
     }
 
     public async deleteCreateUserRelation(followerId: string, followedId: string): Promise<void> {
         await this.connection.raw(`
-            DELETE FROM users_relations
-            WHERE follower_id="${followerId}"
-            AND followed_id="${followedId}";
-        `)
-        
-        return undefined
+        DELETE FROM users_relations
+        WHERE follower_id="${followerId}"
+        AND followed_id="${followedId}";
+    `)
     }
-
 
 }

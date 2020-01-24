@@ -1,4 +1,5 @@
 import { UserGateway } from "../gateways/User/userGateway";
+import { response } from "express";
 
 export class UnfollowUserUC {
     constructor(
@@ -10,7 +11,7 @@ export class UnfollowUserUC {
         await this.userGateway.deleteCreateUserRelation(input.followerId, input.followedId)    
     }
 
-    async verifyUsersExists(input: UnfollowUserInput) {
+    public async verifyUsersExists(input: UnfollowUserInput){
         await Promise.all([
             this.userGateway.verifyUserExists(input.followedId),
             this.userGateway.verifyUserExists(input.followerId)

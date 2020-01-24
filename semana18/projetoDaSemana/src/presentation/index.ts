@@ -12,18 +12,18 @@ import { UserDatabase } from '../data/userDatabase';
 import { GetAllUsersUC } from '../business/usecases/getAllUsersUC';
 import { FollowUserUC, FollowUserInput } from '../business/usecases/followUserUC';
 import {
-    UnfollowUserUC, 
-    UnfollowUserInput 
+    UnfollowUserUC,
+    UnfollowUserInput
 } from '../business/usecases/unfollowUserUC';
 
 const app = express()
 app.use(express.json()) // Linha mágica (middleware)
 
-const getTokenFromHeaders = (headers:any):string => {
+const getTokenFromHeaders = (headers: any): string => {
     return (headers["authentication"] as string) || "";
 }
 
-function authenticate(request:Request ) {
+function authenticate(request: Request) {
     const authenticationService = new AuthenticationService()
     return authenticationService.getUserTokenById(getTokenFromHeaders(request.headers))
 }
@@ -93,33 +93,40 @@ app.post('/login', async (request: Request, response: Response) => {
 
 app.post("/users/follow", async (request: Request, response: Response) => {
     try {
-        
-        const userId = authenticate(request)
-                
-        const useCase = new FollowUserUC(new UserDatabase())
+        try{
+            const userId = authenticate(request)
 
-        const input: FollowUserInput = {
-            followerId: userId,
-            followedId: request.body.userToFollow
+            const useCase = new FollowUserUC(new UserDatabase())
+
+            const input: FollowUserInput = {
+                followerId: userId,
+                followedId: request.body.userToFollow
+            }
+
+            await useCase.execute(input)
+
+            response.status(200).send({
+                message: "Usuário seguido com sucesso!"
+            })
+
+        }catch (message){
+            response.status(200).send({
+                message: "Você já segue esse usuário!"
+            });
         }
-
-        await useCase.execute(input)
-
-        response.status(200).send({
-            message:"Usuário seguido com sucesso!"
-        })
 
     } catch (error) {
         response.status(404).send({
             ...error, message: error.message
         });
     }
+
 });
 
 app.delete("/users/unfollow", async (request: Request, response: Response) => {
     try {
         const userId = authenticate(request)
-                
+
         const useCase = new UnfollowUserUC(new UserDatabase())
 
         const input: UnfollowUserInput = {
@@ -130,9 +137,8 @@ app.delete("/users/unfollow", async (request: Request, response: Response) => {
         await useCase.execute(input)
 
         response.status(200).send({
-            message:"Você não segue mais o usuário!"
+            message: "Você não segue mais o usuário!"
         })
-
     } catch (error) {
         response.status(404).send({
             ...error, message: error.message
