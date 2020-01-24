@@ -11,6 +11,10 @@ import { LoginUserUC } from '../business/usecases/loginUserUC';
 import { UserDatabase } from '../data/userDatabase';
 import { GetAllUsersUC } from '../business/usecases/getAllUsersUC';
 import { FollowUserUC, FollowUserInput } from '../business/usecases/followUserUC';
+import {
+    UnfollowUserUC, 
+    UnfollowUserInput 
+} from '../business/usecases/unfollowUserUC';
 
 const app = express()
 app.use(express.json()) // Linha mágica (middleware)
@@ -112,10 +116,19 @@ app.post("/users/follow", async (request: Request, response: Response) => {
     }
 });
 
-app.post("/users/unfollow", async (request: Request, response: Response) => {
+app.delete("/users/unfollow", async (request: Request, response: Response) => {
     try {
-        
-       
+        const userId = authenticate(request)
+                
+        const useCase = new UnfollowUserUC(new UserDatabase())
+
+        const input: UnfollowUserInput = {
+            followerId: userId,
+            followedId: request.body.userToUnfollow
+        }
+
+        await useCase.execute(input)
+
         response.status(200).send({
             message:"Você não segue mais o usuário!"
         })

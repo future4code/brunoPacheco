@@ -56,4 +56,15 @@ export class UserDatabase extends BaseDatabase implements UserGateway {
         return undefined
     }
 
+    public async deleteCreateUserRelation(followerId: string, followedId: string): Promise<void> {
+        await this.connection.raw(`
+            DELETE FROM users_relations
+            WHERE follower_id="${followerId}"
+            AND followed_id="${followedId}";
+        `)
+        
+        return undefined
+    }
+
+
 }
