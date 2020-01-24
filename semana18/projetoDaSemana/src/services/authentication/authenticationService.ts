@@ -1,11 +1,11 @@
 import {
-    AuthenticationGateway,
+    AuthenticationGateway
 } from "../../business/gateways/authentication/authenticationGateway";
 import * as jwt from "jsonwebtoken";
 
 export class AuthenticationService implements AuthenticationGateway {
 
-    private static EXPIRES_IN = "1h"
+    private static EXPIRES_IN = "10h"
 
     private getJwtSecretKey(): string {
         if (!process.env.JWT_SECRET) {
@@ -31,6 +31,11 @@ export class AuthenticationService implements AuthenticationGateway {
             this.getJwtSecretKey()
         ) as JwtData
         return verifyToken.userId
+    }
+
+    getUserTokenById(token: string): string {
+        const verifyToken = this.verifyToken(token)
+        return verifyToken
     }
 
 }

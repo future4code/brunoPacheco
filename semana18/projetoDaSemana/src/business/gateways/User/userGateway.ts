@@ -1,7 +1,10 @@
 import { User } from "../../entities/user";
 
 export interface UserGateway {
-    getUserByEmail(email:string):Promise<User>;
-    createUser(user:User):Promise<void>;
+    createUser(user: User): Promise<void>;
+    getUserByEmail(email: string): Promise<User>;
+    verifyUserExists(id: string): Promise<boolean>;
+    createUserRelation(followerId: string, followedId: string): Promise<void>
+
 }
 
