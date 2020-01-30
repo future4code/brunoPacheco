@@ -4,7 +4,7 @@ export class User {
         private name: string,
         private email: string,
         private password: string,
-        private birthDate:string,
+        private birth_date:string,
         private picture:string
     ) { }
 
@@ -25,7 +25,7 @@ export class User {
     }
 
     public getBirthDate():string {
-        return this.birthDate
+        return this.birth_date
     }
 
     public getPicture():string {

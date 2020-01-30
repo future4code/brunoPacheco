@@ -5,7 +5,7 @@ import { User } from "../business/entities/user";
 export class UserDatabase extends BaseDatabase implements UserGateway {
     public async createUser(user: User): Promise<void> {
         await this.connection.raw(`
-            INSERT INTO Astromatch_users (id,name,email,password,birthDate,picture)
+            INSERT INTO Astromatch_users (id,name,email,password,birth_date, picture)
             VALUES (
             "${user.getId()}",
             "${user.getName()}",
@@ -29,7 +29,7 @@ export class UserDatabase extends BaseDatabase implements UserGateway {
             dbModel.name,
             dbModel.email,
             dbModel.password,
-            dbModel.birthDate,
+            dbModel.birth_date,
             dbModel.picture
         )
     }
@@ -46,7 +46,7 @@ export class UserDatabase extends BaseDatabase implements UserGateway {
         const user = await this.connection.raw(`
             SELECT * FROM Astromatch_users WHERE id="${id}";
         `)
-        
+
         return user
     }
 
@@ -64,6 +64,13 @@ export class UserDatabase extends BaseDatabase implements UserGateway {
         WHERE follower_id="${followerId}"
         AND followed_id="${followedId}";
     `)
+    }
+
+    public async getAllRelationUsers():Promise<User[]> {
+        const allRelationsUsers = await this.connection.raw(`
+        SELECT * FROM astromatch_follower_followed ;
+    `)
+    return allRelationsUsers[0].map(this.dbModelToUser);
     }
 
 }

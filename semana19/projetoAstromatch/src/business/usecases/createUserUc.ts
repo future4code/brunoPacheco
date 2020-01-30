@@ -14,7 +14,7 @@ export class CreateUserUC {
     ) { }
 
     private verifyInputs(input: CreateUserUCInput) {
-        if (!(input.name || input.email || input.password)) {
+        if (!(input.name || input.email || input.password || input.birth_date || input.picture)) {
             throw new Error("É necessário preencher todos os campos!")
         }
     }
@@ -27,7 +27,7 @@ export class CreateUserUC {
             input.name,
             input.email,
             encryptedPassword,
-            input.birthDate,
+            input.birth_date,
             input.picture
         );
         await this.createUserGateway.createUser(newUser);
@@ -43,7 +43,7 @@ export interface CreateUserUCInput {
     name: string
     email: string
     password: string
-    birthDate:string
+    birth_date:string
     picture:string
 }
 

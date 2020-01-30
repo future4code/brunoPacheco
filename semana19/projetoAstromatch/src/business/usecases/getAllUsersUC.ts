@@ -13,7 +13,7 @@ export class GetAllUsersUC {
                 id: user.getId(),
                 name: user.getName(),
                 email: user.getEmail(),
-                birthDate:user.getBirthDate(),
+                birth_date:user.getBirthDate(),
                 picture:user.getPicture()
             }))
         }
@@ -28,6 +28,6 @@ interface GetAllUsersUCDetails {
     id: string,
     name: string,
     email: string,
-    birthDate:string,
+    birth_date:string,
     picture:string
 }

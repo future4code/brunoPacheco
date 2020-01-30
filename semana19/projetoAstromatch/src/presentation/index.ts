@@ -34,8 +34,8 @@ app.post("/signup", async (request: Request, response: Response) => {
             name: request.body.name,
             email: request.body.email,
             password: request.body.password,
-            birthDate: request.body.birthDate,
-            photo: request.body.photo
+            birth_date: request.body.birth_date,
+            picture: request.body.picture
         }
 
         const createUserUC = new CreateUserUC(
@@ -93,9 +93,9 @@ app.post('/login', async (request: Request, response: Response) => {
     }
 });
 
-app.post("/users/follow", async (request: Request, response: Response) => {
+app.post("/users/match", async (request: Request, response: Response) => {
     try {
-        try{
+        try {
             const userId = authenticate(request)
 
             const useCase = new FollowUserUC(new UserDatabase())
@@ -108,12 +108,12 @@ app.post("/users/follow", async (request: Request, response: Response) => {
             await useCase.execute(input)
 
             response.status(200).send({
-                message: "Usuário seguido com sucesso!"
+                message: "Usuário marcado com sucesso!"
             })
 
-        }catch (message){
+        } catch (message) {
             response.status(200).send({
-                message: "Você já segue esse usuário!"
+                message: "Você já marcou esse usuário!"
             });
         }
 
@@ -125,7 +125,7 @@ app.post("/users/follow", async (request: Request, response: Response) => {
 
 });
 
-app.delete("/users/unfollow", async (request: Request, response: Response) => {
+app.delete("/users/unmatch", async (request: Request, response: Response) => {
     try {
         const userId = authenticate(request)
 
@@ -139,7 +139,7 @@ app.delete("/users/unfollow", async (request: Request, response: Response) => {
         await useCase.execute(input)
 
         response.status(200).send({
-            message: "Você não segue mais o usuário!"
+            message: "Você não marca mais o usuário!"
         })
     } catch (error) {
         response.status(404).send({
@@ -147,5 +147,15 @@ app.delete("/users/unfollow", async (request: Request, response: Response) => {
         });
     }
 })
+
+app.get("/getallrelationsusers", async (request: Request, response: Response) => {
+    try {
+        const createUserUC = new GetAllUsersUC(new UserDatabase());
+        const result = await createUserUC.execute();
+        response.status(200).send(result);
+    } catch (error) {
+        response.status(404).send(error.message)
+    }
+});
 
 export default app
