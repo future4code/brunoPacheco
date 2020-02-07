@@ -3,7 +3,7 @@ import "firebase/firestore";
 
 export function InitializeFirebase() {
     const firebaseConfig = {
-        apiKey: "AIzaSyAoLFG8PasjN4j-UgCpVh7qw6LKdMyoyl4",
+        apiKey: process.env.SENHA-FIREBASE,
         authDomain: "futuretube-bruno.firebaseapp.com",
         databaseURL: "https://futuretube-bruno.firebaseio.com",
         projectId: "futuretube-bruno",
