@@ -1,6 +1,6 @@
-import { UserGateway } from "../gateways/UserGateway";
+import { UserGateway } from "../gateways/userGateway";
 import { IdGeneratorGateway } from "../gateways/idGenerator/idGeneratorGateway";
-import { EncripytographyGateway } from "../gateways/criptography/encryptographyGateway";
+import { EncripytographyGateway } from "../gateways/cryptography/encryptographyGateway";
 import { AuthenticationGateway } from "../gateways/authentication/authenticationGateway";
 import { User } from "../entities/user";
 

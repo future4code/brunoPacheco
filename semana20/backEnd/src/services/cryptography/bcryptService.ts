@@ -1,5 +1,5 @@
 import * as bcrypt from "bcrypt";
-import { EncripytographyGateway } from "../../business/gateways/criptography/encryptographyGateway";
+import { EncripytographyGateway } from "../../business/gateways/cryptography/encryptographyGateway";
 
 export class BcryptService implements EncripytographyGateway {
     private static BCRYPT_SALT_ROUNDS = 10;
