@@ -30,6 +30,13 @@ export class AuthenticationService implements AuthenticationGateway {
         ) as JwtData
         return verifyToken.userId
     }
+
+    getUserIdFromToken(token: string): string {
+        const jwtVerifiedResult = jwt.verify(token, this.getJwtSecretKey()) as {
+          userId: string;
+        };
+        return jwtVerifiedResult["userId"];
+      }
 }
 
 interface JwtData {
