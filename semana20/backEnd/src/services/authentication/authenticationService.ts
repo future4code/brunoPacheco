@@ -1,5 +1,6 @@
 import { AuthenticationGateway } from "../../business/gateways/authentication/authenticationGateway";
 import * as jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../../services/configDotEnv"
 
 export class AuthenticationService implements AuthenticationGateway {
 

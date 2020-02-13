@@ -32,7 +32,6 @@ export class ChangeUsersPasswordUC {
         };
     }
 
-
 }
 
 export interface ChangeUsersPasswordUCInput {

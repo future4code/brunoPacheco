@@ -1,5 +1,4 @@
 import knex from "knex"
-import dotenv from "dotenv"
 
 export abstract class BaseDatabase {
     

@@ -13,7 +13,7 @@ app.use(express.json()) // Linha mágica (middleware)
 
 const getTokenFromHeaders = (headers: any): string => {
     return (headers["auth"] as string) || "";
-  };
+};
 
 app.post("/signup", async (request: Request, response: Response) => {
     try {
@@ -85,22 +85,22 @@ app.post('/login', async (request: Request, response: Response) => {
 
 app.post("/changePassword", async (req: Request, res: Response) => {
     try {
-      const changePasswordUC = new ChangeUsersPasswordUC(
-        new AuthenticationService(),
-        new UserDatabase(),
-        new BcryptService()
-      );
-      const result = await changePasswordUC.execute({
-        token: getTokenFromHeaders(req.headers),
-        oldPassword: req.body.oldPassword,
-        newPassword: req.body.newPassword
-      });
-      res.status(200).send(result);
+        const changePasswordUC = new ChangeUsersPasswordUC(
+            new AuthenticationService(),
+            new UserDatabase(),
+            new BcryptService()
+        );
+        const result = await changePasswordUC.execute({
+            token: getTokenFromHeaders(req.headers),
+            oldPassword: req.body.oldPassword,
+            newPassword: req.body.newPassword
+        });
+        res.status(200).send(result);
     } catch (err) {
-      res.status(400).send({
-        errorMessage: err.message
-      });
+        res.status(400).send({
+            errorMessage: err.message
+        });
     }
-  });
+});
 
 export default app
