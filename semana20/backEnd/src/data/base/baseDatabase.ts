@@ -1,4 +1,4 @@
-import knex from "knex"
+import knex from "knex";
 
 export abstract class BaseDatabase {
     
@@ -7,8 +7,10 @@ export abstract class BaseDatabase {
         connection: {
             host: "ec2-3-84-38-207.compute-1.amazonaws.com",
             user: "bruno",
-            password: process.env.SENHA_FUTURETUBE,
+            password: process.env.SENHA_FUTURETUBE_DBA,
             database: "dbaBruno"
         }
+        
     });
+
 }
