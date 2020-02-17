@@ -5,17 +5,16 @@
 //caso não encontre, irá para a segunda letra e ira comparar com as demais
 //no final, se chegar na ultima letra, quer dizer que não há letra que se repete na string
 
-export function primeiraLetraRecorrente(palavra: string): string {
+export function primeiraLetraRecorrente(palavra: string): any {
     const tamanhoPalavra: number = palavra.length;
-    let letraParaComparar: number = 1;
-    let letra = palavra[0];
+    let array: string[] = [];
+    let letraRepetida: string = ""
     for (let i: number = 0; i <= tamanhoPalavra; i++) {
-        letra = palavra[i]
-        if (letra === palavra[letraParaComparar]) {
-            return letra
+        if (array.indexOf(palavra[i]) === -1) {
+            array.push(palavra[i])
         } else {
-            letraParaComparar++
+            return letraRepetida = palavra[i]
         }
     }
-    return letra
+    return letraRepetida
 }
