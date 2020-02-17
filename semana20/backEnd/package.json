@@ -12,7 +12,6 @@
     "postbuild": "cp ./package.json build && cd build && npm install && npm run ziplambda"
   },
   "dependencies": {
-    "@types/bcrypt": "^3.0.0",
     "@types/express": "^4.17.2",
     "@types/jsonwebtoken": "^8.3.7",
     "bcrypt": "^3.0.8",

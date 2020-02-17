@@ -43,7 +43,7 @@ app.post("/signup", async (request: Request, response: Response) => {
         }
 
     } catch (error) {
-        console.log("primeiro erro")
+        console.log("primeiro erro: ",error.message)
         response.status(404).send(error.message);
     }
 });

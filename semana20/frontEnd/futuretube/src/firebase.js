@@ -1,6 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/firestore";
-import dotenv from "dotenv"
+
 
 export function InitializeFirebase() {
     const firebaseConfig = {
