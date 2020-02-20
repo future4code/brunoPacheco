@@ -1,0 +1,5 @@
+#Pasta de renderiação de Typescript para Javascript
+.build/
+
+#Arquivo com informações sensíveis para o github
+.env/
