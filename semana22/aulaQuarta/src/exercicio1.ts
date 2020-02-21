@@ -15,6 +15,7 @@ export function itemA(number:number): number[]{
   return array;
 }
 
+
 export function itemB(number:number): number[]{
   let array:number[]=[];
   for(let i:number=number;i>=0;i--){
